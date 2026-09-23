@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
 
 namespace AsuFit.Presentacion
 {
@@ -183,7 +184,47 @@ namespace AsuFit.Presentacion
         #endregion
 
         #region 5. LÓGICA DE NEGOCIO Y REGLAS DE ACCESO
-        // Delega la evaluación de acceso a la capa de Negocio y formatea la respuesta visual según el dictamen.
+
+        // Método auxiliar para reproducir voz en segundo plano forzando pronunciación en español
+        private void EmitirVoz(string mensaje)
+        {
+            // SI LA CONFIGURACIÓN ESTÁ DESACTIVADA, ABORTA LA REPRODUCCIÓN AQUÍ MISMO
+            if (!Properties.Settings.Default.VozAsistenciaActiva) return;
+
+            Task.Run(() =>
+            {
+                try
+                {
+                    using (SpeechSynthesizer voz = new SpeechSynthesizer())
+                    {
+                        voz.SetOutputToDefaultAudioDevice();
+
+                        // Intenta forzar el motor fonético en español
+                        try
+                        {
+                            voz.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult, 0, new CultureInfo("es-ES"));
+                        }
+                        catch
+                        {
+                            // Si el Windows no tiene el paquete de España, intenta con el neutro/latino
+                            try { voz.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult, 0, new CultureInfo("es-MX")); } catch { }
+                        }
+
+                        // Opcional: Ajustes de volumen y velocidad para entornos ruidosos
+                        voz.Volume = 100;
+                        voz.Rate = -1; // -1 lo hace un poco más pausado y entendible
+
+                        voz.Speak(mensaje);
+                    }
+                }
+                catch
+                {
+                    // Se ignora silenciosamente si la computadora no tiene parlantes o salida de audio configurada
+                }
+            });
+        }
+
+        // Delega la evaluación de acceso a la capa de Negocio y formatea la respuesta visual y auditiva según el estado transaccional.
         private void ProcesarAcceso(string cedula)
         {
             SocioNegocio negocio = new SocioNegocio();
@@ -196,7 +237,8 @@ namespace AsuFit.Presentacion
 
             if (estadoAcceso == -1)
             {
-                MostrarAlerta(Color.DarkOrange, "Socio no encontrado", "", "", "Por favor, pasá por recepción para registrarte.");
+                EmitirVoz("Socio no encontrado, pasa por recepción para registrarte.");
+                MostrarAlerta(Color.DarkOrange, "Socio no encontrado", "", "", "Por favor, pasa por recepción para registrarte.");
                 return;
             }
 
@@ -204,18 +246,23 @@ namespace AsuFit.Presentacion
 
             if (estadoAcceso == 0)
             {
+                EmitirVoz("Acceso denegado.");
                 MostrarAlerta(Color.DarkRed, "Acceso Denegado", nombreCompleto, socio.NombrePlan, "Tu usuario está inactivo o sin membresía vigente.");
                 return;
             }
 
             if (estadoAcceso == -2)
             {
+                EmitirVoz("El plan está vencido.");
                 MostrarAlerta(Color.Crimson, "Plan Vencido", nombreCompleto, socio.NombrePlan, detalleVencimiento);
                 return;
             }
 
             // Registro silencioso de asistencia para accesos válidos (Estado 1 o 2)
             negocio.RegistrarAsistencia(socio.IdSocio);
+
+            // Emite el saludo personalizado para accesos válidos
+            EmitirVoz($"Bienvenido, {socio.Nombre} {socio.Apellido}");
 
             if (estadoAcceso == 2)
             {

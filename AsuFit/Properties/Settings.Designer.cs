@@ -58,5 +58,17 @@ namespace AsuFit.Properties {
                 this["FechaUltimoBackup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool VozAsistenciaActiva {
+            get {
+                return ((bool)(this["VozAsistenciaActiva"]));
+            }
+            set {
+                this["VozAsistenciaActiva"] = value;
+            }
+        }
     }
 }

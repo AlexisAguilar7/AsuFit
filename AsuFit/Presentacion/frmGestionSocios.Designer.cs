@@ -53,6 +53,7 @@
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.btnEstado = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSocios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -326,12 +327,28 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "GESTIÓN DE SOCIOS";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(391, 232);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 20);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "PROGRESO FÍSICO";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // frmGestionSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(867, 272);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.chkActivo);
@@ -376,5 +393,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSocioEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSocioContEmerg;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSocioTelEmerg;
+        private System.Windows.Forms.Button button1;
     }
 }
