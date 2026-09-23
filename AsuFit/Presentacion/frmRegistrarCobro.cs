@@ -1,0 +1,462 @@
+﻿using AsuFit.Datos;
+using AsuFit.Entidades;
+using AsuFit.Negocio;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace AsuFit.Presentacion
+{
+    public partial class frmRegistrarCobro : Form
+    {
+        #region 1. VARIABLES GLOBALES Y CONSTRUCTOR
+        private int idSocioSeleccionado = 0;
+        private int diasPlanSeleccionado = 0;
+        private Usuario usuarioActual;
+
+        public frmRegistrarCobro(Usuario userLogueado)
+        {
+            InitializeComponent();
+
+            // FIX ARQUITECTÓNICO: Suscripción manual del evento Load para garantizar el orden de renderizado
+            this.Load += new EventHandler(frmRegistrarCobro_Load);
+
+            usuarioActual = userLogueado;
+
+            // Bloquea la autogeneración de columnas para mantener la estructura del diseñador
+            dgvSocios.AutoGenerateColumns = false;
+
+            // Configura el renderizado manual del ComboBox para integrar el tema oscuro
+            cmbPlanes.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbPlanes.DrawItem += CmbPlanes_DrawItem;
+            cmbPlanes.DropDownClosed += cmbPlanes_DropDownClosed;
+            cmbPlanes.BackColor = Color.FromArgb(35, 39, 47);
+            cmbPlanes.ForeColor = Color.White;
+
+            // Configura el campo de monto como elemento de solo lectura
+            txtMonto.BackColor = Color.FromArgb(35, 39, 47);
+            txtMonto.ForeColor = Color.White;
+            txtMonto.ReadOnly = true;
+            txtMonto.Enter += delegate { this.Focus(); };
+        }
+        #endregion
+
+        #region 2. INICIALIZACIÓN Y CARGA DE DATOS
+        // Orquesta el arranque del formulario, inyectando límites de memoria y renderizando los listados principales.
+        private void frmRegistrarCobro_Load(object sender, EventArgs e)
+        {
+            // Aplica la paleta de colores del sistema a la grilla
+            ConfigurarTemaOscuroGrilla(dgvSocios);
+
+            // Activación del blindaje transaccional
+            SuscribirFiltrosDeSeguridad();
+
+            CargarGrillaSocios();
+            CargarComboboxPlanes();
+
+            // Configura el texto de sugerencia en el buscador
+            AplicarPlaceholder(txtBuscar, "Buscar por Cédula, Nombre o Apellido...");
+
+            // Libera el foco inicial de los controles
+            this.ActiveControl = null;
+        }
+
+        // Consulta el catálogo de planes en la capa de negocio y enlaza la colección de objetos al control de interfaz.
+        private void CargarComboboxPlanes()
+        {
+            PlanNegocio negocioPlan = new PlanNegocio();
+            List<Plan> listaPlanes = negocioPlan.ListarPlanes("Activo");
+
+            Plan planPorDefecto = new Plan { IdPlan = 0, NombrePlan = "--- Seleccionar Plan ---", DuracionDias = 0, Precio = 0 };
+            listaPlanes.Insert(0, planPorDefecto);
+
+            cmbPlanes.DataSource = listaPlanes;
+            cmbPlanes.DisplayMember = "NombrePlan";
+            cmbPlanes.ValueMember = "IdPlan";
+        }
+        #endregion
+
+        #region 3. ESTILOS VISUALES Y COMPORTAMIENTO UI
+        // Personaliza el dibujado de los elementos del ComboBox extrayendo el atributo visible del objeto enlazado.
+        private void CmbPlanes_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            ComboBox combo = sender as ComboBox;
+
+            bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            Color bgColor = isSelected ? Color.FromArgb(0, 229, 255) : Color.FromArgb(35, 39, 47);
+            Color txtColor = isSelected ? Color.Black : Color.White;
+
+            Plan planEnlazado = combo.Items[e.Index] as Plan;
+            string textoAMostrar = planEnlazado != null ? planEnlazado.NombrePlan : combo.Items[e.Index].ToString();
+
+            e.Graphics.FillRectangle(new SolidBrush(bgColor), e.Bounds);
+            e.Graphics.DrawString(textoAMostrar, e.Font, new SolidBrush(txtColor), e.Bounds, StringFormat.GenericDefault);
+        }
+
+        // Gestiona el comportamiento de la marca de agua con desvanecimiento dinámico estilo AsuFit
+        private void AplicarPlaceholder(TextBox txt, string textoAyuda)
+        {
+            txt.Tag = textoAyuda;
+
+            if (string.IsNullOrWhiteSpace(txt.Text) || txt.Text == textoAyuda)
+            {
+                txt.Text = textoAyuda;
+                txt.ForeColor = Color.Silver;
+            }
+            else
+            {
+                txt.ForeColor = Color.White;
+            }
+
+            txt.Enter += delegate
+            {
+                if (txt.Text == textoAyuda)
+                {
+                    this.BeginInvoke(new Action(() => txt.SelectionStart = 0));
+                }
+            };
+
+            // Intercepta el clic y el arrastre del mouse para impedir que pinten de azul la ayuda
+            txt.MouseDown += delegate
+            {
+                if (txt.Text == textoAyuda)
+                {
+                    txt.SelectionStart = 0;
+                    txt.SelectionLength = 0;
+                }
+            };
+
+            txt.MouseMove += delegate
+            {
+                if (txt.Text == textoAyuda && txt.SelectionLength > 0)
+                {
+                    txt.SelectionStart = 0;
+                    txt.SelectionLength = 0;
+                }
+            };
+
+            txt.TextChanged += delegate
+            {
+                if (txt.Text != textoAyuda && txt.ForeColor == Color.Silver)
+                {
+                    string entradaUsuario = txt.Text;
+
+                    // Solo quitamos el bloque exacto del placeholder, sin destruir caracteres similares
+                    if (entradaUsuario.StartsWith(textoAyuda))
+                        entradaUsuario = entradaUsuario.Substring(textoAyuda.Length);
+                    else if (entradaUsuario.EndsWith(textoAyuda))
+                        entradaUsuario = entradaUsuario.Substring(0, entradaUsuario.Length - textoAyuda.Length);
+
+                    txt.ForeColor = Color.White;
+                    txt.Text = entradaUsuario;
+                    txt.SelectionStart = txt.Text.Length;
+                }
+                else if (string.IsNullOrEmpty(txt.Text))
+                {
+                    txt.ForeColor = Color.Silver;
+                    txt.Text = textoAyuda;
+                    txt.SelectionStart = 0;
+                }
+            };
+
+            txt.KeyDown += delegate (object sender, KeyEventArgs e)
+            {
+                if (txt.Text == textoAyuda && (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
+                {
+                    e.SuppressKeyPress = true;
+                }
+            };
+        }
+
+        // Aplica el estilo visual premium (Modo Oscuro) al DataGridView
+        private void ConfigurarTemaOscuroGrilla(DataGridView dgv)
+        {
+            dgv.BackgroundColor = Color.FromArgb(25, 28, 35);
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.GridColor = Color.FromArgb(50, 55, 65);
+
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 39, 47);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            dgv.DefaultCellStyle.BackColor = Color.FromArgb(25, 28, 35);
+            dgv.DefaultCellStyle.ForeColor = Color.White;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 229, 255);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgv.RowHeadersVisible = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.AllowUserToAddRows = false;
+            dgv.ReadOnly = true;
+            dgv.RowTemplate.Height = 35;
+        }
+        #endregion
+
+        #region 4. BÚSQUEDA Y CARGA DE DATOS
+        // Carga los registros de socios activos desde la base de datos
+        private void CargarGrillaSocios()
+        {
+            SocioNegocio negocio = new SocioNegocio();
+            dgvSocios.DataSource = negocio.ListarSocios("Activo");
+
+            dgvSocios.ClearSelection();
+            idSocioSeleccionado = 0;
+        }
+
+        // Filtra los datos en memoria sin requerir consultas adicionales a la BD
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string textoBusqueda = txtBuscar.Text;
+            if (textoBusqueda == (string)txtBuscar.Tag) textoBusqueda = "";
+
+            if (dgvSocios.DataSource is DataTable dt)
+            {
+                string textoSeguro = textoBusqueda.Replace("'", "''");
+                dt.DefaultView.RowFilter = $"Cedula LIKE '%{textoSeguro}%' OR Apellido LIKE '%{textoSeguro}%' OR Nombre LIKE '%{textoSeguro}%'";
+            }
+        }
+        #endregion
+
+        #region 5. GESTIÓN DE GRILLA Y FORMATO CONDICIONAL
+        // Configura propiedades de la grilla posteriores al enlace de datos
+        private void dgvSocios_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvSocios.ClearSelection();
+
+            // Oculta las columnas de identificadores internos tras la renderización
+            foreach (DataGridViewColumn col in dgvSocios.Columns)
+            {
+                if (col.Name == "colCobroId" ||
+                    col.DataPropertyName == "IdSocio" ||
+                    col.HeaderText.Trim().ToUpper() == "ID")
+                {
+                    col.Visible = false;
+                }
+            }
+        }
+
+        // Aplica alertas de color basadas en la fecha de vencimiento de los cobros
+        private void dgvSocios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvSocios.Columns.Contains("colCobroVencimiento"))
+            {
+                var celdaFecha = dgvSocios.Rows[e.RowIndex].Cells["colCobroVencimiento"].Value;
+
+                if (celdaFecha != null && celdaFecha != DBNull.Value)
+                {
+                    DateTime fechaVencimiento = Convert.ToDateTime(celdaFecha);
+                    TimeSpan diferencia = fechaVencimiento.Date - DateTime.Now.Date;
+
+                    if (fechaVencimiento.Date < DateTime.Now.Date)
+                    {
+                        // Membresía vencida
+                        dgvSocios.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
+                        dgvSocios.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                    else if (diferencia.TotalDays >= 0 && diferencia.TotalDays <= 7)
+                    {
+                        // Próximo a vencer
+                        dgvSocios.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gold;
+                        dgvSocios.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                    }
+                }
+            }
+        }
+
+        // Captura el identificador único del socio seleccionado
+        private void dgvSocios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvSocios.Columns.Contains("colCobroId"))
+            {
+                idSocioSeleccionado = Convert.ToInt32(dgvSocios.Rows[e.RowIndex].Cells["colCobroId"].Value);
+            }
+            // Captura alternativa para variaciones en el DataGridView
+            else if (e.RowIndex >= 0 && dgvSocios.Columns.Contains("ID"))
+            {
+                idSocioSeleccionado = Convert.ToInt32(dgvSocios.Rows[e.RowIndex].Cells["ID"].Value);
+            }
+        }
+
+        // Libera la selección al interactuar con el área libre del formulario
+        private void frmRegistrarCobro_Click(object sender, EventArgs e)
+        {
+            dgvSocios.ClearSelection();
+            idSocioSeleccionado = 0;
+            this.ActiveControl = null;
+        }
+        #endregion
+
+        #region 6. PROCESAMIENTO DE COBRO
+        // Actualiza el monto a cobrar proyectando la propiedad financiera del objeto plan seleccionado en memoria.
+        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPlanes.SelectedIndex <= 0)
+            {
+                txtMonto.Clear();
+                diasPlanSeleccionado = 0;
+                return;
+            }
+
+            Plan planSeleccionado = cmbPlanes.SelectedItem as Plan;
+
+            if (planSeleccionado != null && planSeleccionado.IdPlan > 0)
+            {
+                txtMonto.Text = planSeleccionado.Precio.ToString("N0");
+                diasPlanSeleccionado = planSeleccionado.DuracionDias;
+            }
+        }
+
+        // Libera el foco tras la selección para evitar el resaltado nativo de Windows.
+        private void cmbPlanes_DropDownClosed(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+        }
+
+        // Integra la solicitud de cobro con el Carrito Global utilizando referencias en memoria y transfiere al módulo de Caja.
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            ArqueoNegocio negocioArqueo = new ArqueoNegocio();
+            if (!negocioArqueo.VerificarCajaAbierta())
+            {
+                MensajeAsuFit.Mostrar("Para registrar cobros debes realizar la Apertura de Caja, ya que esto requiere ingresar dinero al sistema.\n\nSerás redirigido al módulo de Arqueos.", "Caja Cerrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                frmDashboard dashboard = Application.OpenForms["frmDashboard"] as frmDashboard;
+                if (dashboard != null)
+                {
+                    dashboard.IntentoCobroPendiente = true; // <-- Activa la memoria
+
+                    Control[] botones = dashboard.Controls.Find("btnArqueoCaja", true);
+                    if (botones.Length > 0 && botones[0] is Button btnArqueo) btnArqueo.PerformClick();
+                }
+                return;
+            }
+
+            if (idSocioSeleccionado == 0)
+            {
+                MensajeAsuFit.Mostrar("Por favor, seleccione un socio de la tabla para registrar el cobro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Plan planSeleccionado = cmbPlanes.SelectedItem as Plan;
+
+            if (planSeleccionado == null || planSeleccionado.IdPlan == 0)
+            {
+                MensajeAsuFit.Mostrar("Por favor, seleccione un Plan válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (CarritoGlobal.Detalles.Rows.Count > 0 && CarritoGlobal.IdSocioPagara != null && CarritoGlobal.IdSocioPagara != idSocioSeleccionado)
+            {
+                DialogResult respuesta = MensajeAsuFit.Mostrar(
+                    "Ya hay conceptos en la caja a nombre de otro socio.\n\n¿Deseas agregar esta mensualidad para cobrar ambos planes juntos en el mismo ticket?\n(La factura saldrá a nombre del primer socio, pero ambos serán renovados en el sistema).",
+                    "Cobro Múltiple Detectado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.No) return;
+            }
+            else
+            {
+                CarritoGlobal.IdSocioPagara = idSocioSeleccionado;
+            }
+
+            decimal monto = planSeleccionado.Precio;
+            string conceptoPlan = "Renovación: " + planSeleccionado.NombrePlan;
+
+            string codigoPlanArtificial = $"PLAN-{planSeleccionado.DuracionDias}-{idSocioSeleccionado}-{planSeleccionado.IdPlan}";
+            CarritoGlobal.AgregarItem(0, codigoPlanArtificial, conceptoPlan, 1, monto, 10);
+
+            frmCajaCobro cajaAbierta = Application.OpenForms["frmCajaCobro"] as frmCajaCobro;
+            if (cajaAbierta != null)
+            {
+                cajaAbierta.WindowState = FormWindowState.Normal;
+                CentrarSobreContenedor(cajaAbierta);
+                cajaAbierta.BringToFront();
+                cajaAbierta.ActualizarPantallaDesdeCarrito();
+            }
+            else
+            {
+                frmCajaCobro nuevaCaja = new frmCajaCobro(usuarioActual);
+                CentrarSobreContenedor(nuevaCaja);
+                nuevaCaja.Show();
+            }
+
+            idSocioSeleccionado = 0;
+            txtMonto.Clear();
+            cmbPlanes.SelectedIndex = 0;
+            txtBuscar.Text = "";
+            AplicarPlaceholder(txtBuscar, "Buscar por Cédula, Nombre o Apellido...");
+            dgvSocios.ClearSelection();
+        }
+
+        // Proyecta las coordenadas absolutas en pantalla del panel principal para anclar ventanas transaccionales secundarias.
+        private void CentrarSobreContenedor(Form frm)
+        {
+            Form dashboard = Application.OpenForms["frmDashboard"];
+            if (dashboard != null)
+            {
+                Control[] contenedores = dashboard.Controls.Find("pnlContenedor", true);
+                if (contenedores.Length > 0)
+                {
+                    Control pnl = contenedores[0];
+                    frm.StartPosition = FormStartPosition.Manual;
+                    Point pos = pnl.PointToScreen(Point.Empty);
+                    int x = pos.X + (pnl.Width - frm.Width) / 2;
+                    int y = pos.Y + (pnl.Height - frm.Height) / 2;
+                    frm.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
+                    return;
+                }
+            }
+            frm.StartPosition = FormStartPosition.CenterScreen;
+        }
+        #endregion
+
+        #region 7. GESTIÓN DE SEGURIDAD Y RESTRICCIONES DE ENTRADA
+        private void SuscribirFiltrosDeSeguridad()
+        {
+            txtBuscar.KeyPress += txtAntiInyeccion_KeyPress;
+
+            ContextMenuStrip menuVacio = new ContextMenuStrip();
+            foreach (Control contenedor in this.Controls)
+            {
+                AsignarBloqueosRecursivo(contenedor, menuVacio);
+            }
+        }
+
+        private void AsignarBloqueosRecursivo(Control contenedor, ContextMenuStrip menuVacio)
+        {
+            if (contenedor is TextBox txt)
+            {
+                txt.KeyDown += BloquearPegado_KeyDown;
+                txt.ContextMenuStrip = menuVacio;
+            }
+
+            foreach (Control hijo in contenedor.Controls)
+            {
+                AsignarBloqueosRecursivo(hijo, menuVacio);
+            }
+        }
+
+        private void BloquearPegado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V || e.Shift && e.KeyCode == Keys.Insert)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtAntiInyeccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\'' || e.KeyChar == '"' || e.KeyChar == ';')
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+    }
+}

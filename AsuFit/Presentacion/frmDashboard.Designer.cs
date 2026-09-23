@@ -1,0 +1,655 @@
+﻿namespace AsuFit.Presentacion
+{
+    partial class frmDashboard
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnAuditoría = new System.Windows.Forms.Button();
+            this.btnGestionUsuarios = new System.Windows.Forms.Button();
+            this.btnRegistrarUsuario = new System.Windows.Forms.Button();
+            this.lblModulo4 = new System.Windows.Forms.Label();
+            this.btnReportesEstadísticas = new System.Windows.Forms.Button();
+            this.btnGestionGastos = new System.Windows.Forms.Button();
+            this.btnHistorialTransacciones = new System.Windows.Forms.Button();
+            this.btnRegistrarCobro = new System.Windows.Forms.Button();
+            this.btnArqueoCaja = new System.Windows.Forms.Button();
+            this.lblModulo3 = new System.Windows.Forms.Label();
+            this.btnProveedores = new System.Windows.Forms.Button();
+            this.btnIngresoMercaderia = new System.Windows.Forms.Button();
+            this.btnGestionProductos = new System.Windows.Forms.Button();
+            this.btnInventarioVentas = new System.Windows.Forms.Button();
+            this.lblModulo2 = new System.Windows.Forms.Label();
+            this.btnGestionPlanes = new System.Windows.Forms.Button();
+            this.btnGestionSocios = new System.Windows.Forms.Button();
+            this.btnRegistrarSocio = new System.Windows.Forms.Button();
+            this.btnRegistroAsistencia = new System.Windows.Forms.Button();
+            this.lblModulo1 = new System.Windows.Forms.Label();
+            this.btnInicio = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnConfiguración = new System.Windows.Forms.Button();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pnlBarraSuperior = new System.Windows.Forms.Panel();
+            this.lblFechaHora = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnNotificaciones = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
+            this.timerReloj = new System.Windows.Forms.Timer(this.components);
+            this.btnEstadoCajaTop = new System.Windows.Forms.Button();
+            this.pnlSidebar.SuspendLayout();
+            this.pnlContenedor.SuspendLayout();
+            this.pnlBarraSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlSidebar
+            // 
+            this.pnlSidebar.AutoScroll = true;
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlSidebar.Controls.Add(this.btnAuditoría);
+            this.pnlSidebar.Controls.Add(this.btnGestionUsuarios);
+            this.pnlSidebar.Controls.Add(this.btnRegistrarUsuario);
+            this.pnlSidebar.Controls.Add(this.lblModulo4);
+            this.pnlSidebar.Controls.Add(this.btnReportesEstadísticas);
+            this.pnlSidebar.Controls.Add(this.btnGestionGastos);
+            this.pnlSidebar.Controls.Add(this.btnHistorialTransacciones);
+            this.pnlSidebar.Controls.Add(this.btnRegistrarCobro);
+            this.pnlSidebar.Controls.Add(this.btnArqueoCaja);
+            this.pnlSidebar.Controls.Add(this.lblModulo3);
+            this.pnlSidebar.Controls.Add(this.btnProveedores);
+            this.pnlSidebar.Controls.Add(this.btnIngresoMercaderia);
+            this.pnlSidebar.Controls.Add(this.btnGestionProductos);
+            this.pnlSidebar.Controls.Add(this.btnInventarioVentas);
+            this.pnlSidebar.Controls.Add(this.lblModulo2);
+            this.pnlSidebar.Controls.Add(this.btnGestionPlanes);
+            this.pnlSidebar.Controls.Add(this.btnGestionSocios);
+            this.pnlSidebar.Controls.Add(this.btnRegistrarSocio);
+            this.pnlSidebar.Controls.Add(this.btnRegistroAsistencia);
+            this.pnlSidebar.Controls.Add(this.lblModulo1);
+            this.pnlSidebar.Controls.Add(this.btnInicio);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 30);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(208, 586);
+            this.pnlSidebar.TabIndex = 0;
+            // 
+            // btnAuditoría
+            // 
+            this.btnAuditoría.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnAuditoría.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuditoría.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAuditoría.FlatAppearance.BorderSize = 0;
+            this.btnAuditoría.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuditoría.ForeColor = System.Drawing.Color.White;
+            this.btnAuditoría.Location = new System.Drawing.Point(0, 536);
+            this.btnAuditoría.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAuditoría.Name = "btnAuditoría";
+            this.btnAuditoría.Size = new System.Drawing.Size(208, 26);
+            this.btnAuditoría.TabIndex = 16;
+            this.btnAuditoría.Text = "🔎 Auditoría";
+            this.btnAuditoría.UseVisualStyleBackColor = false;
+            this.btnAuditoría.Click += new System.EventHandler(this.btnAuditoría_Click);
+            // 
+            // btnGestionUsuarios
+            // 
+            this.btnGestionUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestionUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(0, 510);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionUsuarios.Name = "btnGestionUsuarios";
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(208, 26);
+            this.btnGestionUsuarios.TabIndex = 15;
+            this.btnGestionUsuarios.Text = "🛡️ Gestión de Usuarios";
+            this.btnGestionUsuarios.UseVisualStyleBackColor = true;
+            this.btnGestionUsuarios.Click += new System.EventHandler(this.btnGestionUsuarios_Click);
+            // 
+            // btnRegistrarUsuario
+            // 
+            this.btnRegistrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrarUsuario.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(0, 484);
+            this.btnRegistrarUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(208, 26);
+            this.btnRegistrarUsuario.TabIndex = 14;
+            this.btnRegistrarUsuario.Text = "👷 Registrar Usuario";
+            this.btnRegistrarUsuario.UseVisualStyleBackColor = true;
+            this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
+            // 
+            // lblModulo4
+            // 
+            this.lblModulo4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblModulo4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo4.ForeColor = System.Drawing.Color.White;
+            this.lblModulo4.Location = new System.Drawing.Point(0, 454);
+            this.lblModulo4.Name = "lblModulo4";
+            this.lblModulo4.Size = new System.Drawing.Size(208, 30);
+            this.lblModulo4.TabIndex = 22;
+            this.lblModulo4.Text = "SEGURIDAD Y CONTROL";
+            this.lblModulo4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnReportesEstadísticas
+            // 
+            this.btnReportesEstadísticas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnReportesEstadísticas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportesEstadísticas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportesEstadísticas.FlatAppearance.BorderSize = 0;
+            this.btnReportesEstadísticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportesEstadísticas.ForeColor = System.Drawing.Color.White;
+            this.btnReportesEstadísticas.Location = new System.Drawing.Point(0, 428);
+            this.btnReportesEstadísticas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReportesEstadísticas.Name = "btnReportesEstadísticas";
+            this.btnReportesEstadísticas.Size = new System.Drawing.Size(208, 26);
+            this.btnReportesEstadísticas.TabIndex = 13;
+            this.btnReportesEstadísticas.Text = "📈 Reportes y Estadísticas";
+            this.btnReportesEstadísticas.UseVisualStyleBackColor = false;
+            this.btnReportesEstadísticas.Click += new System.EventHandler(this.btnReportesEstadísticas_Click);
+            // 
+            // btnGestionGastos
+            // 
+            this.btnGestionGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnGestionGastos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionGastos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestionGastos.FlatAppearance.BorderSize = 0;
+            this.btnGestionGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionGastos.ForeColor = System.Drawing.Color.White;
+            this.btnGestionGastos.Location = new System.Drawing.Point(0, 402);
+            this.btnGestionGastos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionGastos.Name = "btnGestionGastos";
+            this.btnGestionGastos.Size = new System.Drawing.Size(208, 26);
+            this.btnGestionGastos.TabIndex = 8;
+            this.btnGestionGastos.Text = "💸 Gestión de Gastos";
+            this.btnGestionGastos.UseVisualStyleBackColor = false;
+            this.btnGestionGastos.Click += new System.EventHandler(this.btnGestionGastos_Click);
+            // 
+            // btnHistorialTransacciones
+            // 
+            this.btnHistorialTransacciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnHistorialTransacciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorialTransacciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistorialTransacciones.FlatAppearance.BorderSize = 0;
+            this.btnHistorialTransacciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialTransacciones.ForeColor = System.Drawing.Color.White;
+            this.btnHistorialTransacciones.Location = new System.Drawing.Point(0, 376);
+            this.btnHistorialTransacciones.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistorialTransacciones.Name = "btnHistorialTransacciones";
+            this.btnHistorialTransacciones.Size = new System.Drawing.Size(208, 26);
+            this.btnHistorialTransacciones.TabIndex = 7;
+            this.btnHistorialTransacciones.Text = "🧾 Historial de Transacciones";
+            this.btnHistorialTransacciones.UseVisualStyleBackColor = false;
+            this.btnHistorialTransacciones.Click += new System.EventHandler(this.btnHistorialTransacciones_Click);
+            // 
+            // btnRegistrarCobro
+            // 
+            this.btnRegistrarCobro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnRegistrarCobro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarCobro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrarCobro.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarCobro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarCobro.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarCobro.Location = new System.Drawing.Point(0, 350);
+            this.btnRegistrarCobro.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarCobro.Name = "btnRegistrarCobro";
+            this.btnRegistrarCobro.Size = new System.Drawing.Size(208, 26);
+            this.btnRegistrarCobro.TabIndex = 4;
+            this.btnRegistrarCobro.Text = "💰 Registrar Cobro";
+            this.btnRegistrarCobro.UseVisualStyleBackColor = false;
+            this.btnRegistrarCobro.Click += new System.EventHandler(this.btnRegistrarCobro_Click);
+            // 
+            // btnArqueoCaja
+            // 
+            this.btnArqueoCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnArqueoCaja.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArqueoCaja.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnArqueoCaja.FlatAppearance.BorderSize = 0;
+            this.btnArqueoCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArqueoCaja.ForeColor = System.Drawing.Color.White;
+            this.btnArqueoCaja.Location = new System.Drawing.Point(0, 324);
+            this.btnArqueoCaja.Margin = new System.Windows.Forms.Padding(2);
+            this.btnArqueoCaja.Name = "btnArqueoCaja";
+            this.btnArqueoCaja.Size = new System.Drawing.Size(208, 26);
+            this.btnArqueoCaja.TabIndex = 9;
+            this.btnArqueoCaja.Text = "💵 Arqueo de Caja";
+            this.btnArqueoCaja.UseVisualStyleBackColor = false;
+            this.btnArqueoCaja.Click += new System.EventHandler(this.btnArqueoCaja_Click);
+            // 
+            // lblModulo3
+            // 
+            this.lblModulo3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblModulo3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo3.ForeColor = System.Drawing.Color.White;
+            this.lblModulo3.Location = new System.Drawing.Point(0, 294);
+            this.lblModulo3.Name = "lblModulo3";
+            this.lblModulo3.Size = new System.Drawing.Size(208, 30);
+            this.lblModulo3.TabIndex = 21;
+            this.lblModulo3.Text = "CAJA Y FINANZAS";
+            this.lblModulo3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnProveedores.Location = new System.Drawing.Point(0, 268);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(208, 26);
+            this.btnProveedores.TabIndex = 12;
+            this.btnProveedores.Text = "🚚 Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = false;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
+            // 
+            // btnIngresoMercaderia
+            // 
+            this.btnIngresoMercaderia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnIngresoMercaderia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresoMercaderia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIngresoMercaderia.FlatAppearance.BorderSize = 0;
+            this.btnIngresoMercaderia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresoMercaderia.ForeColor = System.Drawing.Color.White;
+            this.btnIngresoMercaderia.Location = new System.Drawing.Point(0, 242);
+            this.btnIngresoMercaderia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnIngresoMercaderia.Name = "btnIngresoMercaderia";
+            this.btnIngresoMercaderia.Size = new System.Drawing.Size(208, 26);
+            this.btnIngresoMercaderia.TabIndex = 11;
+            this.btnIngresoMercaderia.Text = "📥 Ingreso de Mercadería";
+            this.btnIngresoMercaderia.UseVisualStyleBackColor = false;
+            this.btnIngresoMercaderia.Click += new System.EventHandler(this.btnIngresoMercaderia_Click);
+            // 
+            // btnGestionProductos
+            // 
+            this.btnGestionProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnGestionProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionProductos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestionProductos.FlatAppearance.BorderSize = 0;
+            this.btnGestionProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionProductos.ForeColor = System.Drawing.Color.White;
+            this.btnGestionProductos.Location = new System.Drawing.Point(0, 216);
+            this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionProductos.Name = "btnGestionProductos";
+            this.btnGestionProductos.Size = new System.Drawing.Size(208, 26);
+            this.btnGestionProductos.TabIndex = 6;
+            this.btnGestionProductos.Text = "📝 Gestión de Productos";
+            this.btnGestionProductos.UseVisualStyleBackColor = false;
+            this.btnGestionProductos.Click += new System.EventHandler(this.btnGestionProductos_Click);
+            // 
+            // btnInventarioVentas
+            // 
+            this.btnInventarioVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnInventarioVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventarioVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventarioVentas.FlatAppearance.BorderSize = 0;
+            this.btnInventarioVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventarioVentas.ForeColor = System.Drawing.Color.White;
+            this.btnInventarioVentas.Location = new System.Drawing.Point(0, 190);
+            this.btnInventarioVentas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInventarioVentas.Name = "btnInventarioVentas";
+            this.btnInventarioVentas.Size = new System.Drawing.Size(208, 26);
+            this.btnInventarioVentas.TabIndex = 5;
+            this.btnInventarioVentas.Text = "📦 Inventario y Ventas";
+            this.btnInventarioVentas.UseVisualStyleBackColor = false;
+            this.btnInventarioVentas.Click += new System.EventHandler(this.btnInventarioVentas_Click);
+            // 
+            // lblModulo2
+            // 
+            this.lblModulo2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblModulo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo2.ForeColor = System.Drawing.Color.White;
+            this.lblModulo2.Location = new System.Drawing.Point(0, 160);
+            this.lblModulo2.Name = "lblModulo2";
+            this.lblModulo2.Size = new System.Drawing.Size(208, 30);
+            this.lblModulo2.TabIndex = 20;
+            this.lblModulo2.Text = "COMERCIAL E INVENTARIO";
+            this.lblModulo2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnGestionPlanes
+            // 
+            this.btnGestionPlanes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnGestionPlanes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionPlanes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestionPlanes.FlatAppearance.BorderSize = 0;
+            this.btnGestionPlanes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionPlanes.ForeColor = System.Drawing.Color.White;
+            this.btnGestionPlanes.Location = new System.Drawing.Point(0, 134);
+            this.btnGestionPlanes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionPlanes.Name = "btnGestionPlanes";
+            this.btnGestionPlanes.Size = new System.Drawing.Size(208, 26);
+            this.btnGestionPlanes.TabIndex = 10;
+            this.btnGestionPlanes.Text = "📑 Gestión de Planes";
+            this.btnGestionPlanes.UseVisualStyleBackColor = false;
+            this.btnGestionPlanes.Click += new System.EventHandler(this.btnGestionPlanes_Click);
+            // 
+            // btnGestionSocios
+            // 
+            this.btnGestionSocios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionSocios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestionSocios.FlatAppearance.BorderSize = 0;
+            this.btnGestionSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionSocios.ForeColor = System.Drawing.Color.White;
+            this.btnGestionSocios.Location = new System.Drawing.Point(0, 108);
+            this.btnGestionSocios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionSocios.Name = "btnGestionSocios";
+            this.btnGestionSocios.Size = new System.Drawing.Size(208, 26);
+            this.btnGestionSocios.TabIndex = 3;
+            this.btnGestionSocios.Text = "👥 Gestión de Socios";
+            this.btnGestionSocios.UseVisualStyleBackColor = true;
+            this.btnGestionSocios.Click += new System.EventHandler(this.btnGestionSocios_Click);
+            // 
+            // btnRegistrarSocio
+            // 
+            this.btnRegistrarSocio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarSocio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrarSocio.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarSocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarSocio.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarSocio.Location = new System.Drawing.Point(0, 82);
+            this.btnRegistrarSocio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarSocio.Name = "btnRegistrarSocio";
+            this.btnRegistrarSocio.Size = new System.Drawing.Size(208, 26);
+            this.btnRegistrarSocio.TabIndex = 2;
+            this.btnRegistrarSocio.Text = "👤 Registrar Socio";
+            this.btnRegistrarSocio.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegistrarSocio.UseVisualStyleBackColor = true;
+            this.btnRegistrarSocio.Click += new System.EventHandler(this.btnRegistrarSocio_Click);
+            // 
+            // btnRegistroAsistencia
+            // 
+            this.btnRegistroAsistencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnRegistroAsistencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistroAsistencia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistroAsistencia.FlatAppearance.BorderSize = 0;
+            this.btnRegistroAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistroAsistencia.ForeColor = System.Drawing.Color.White;
+            this.btnRegistroAsistencia.Location = new System.Drawing.Point(0, 56);
+            this.btnRegistroAsistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistroAsistencia.Name = "btnRegistroAsistencia";
+            this.btnRegistroAsistencia.Size = new System.Drawing.Size(208, 26);
+            this.btnRegistroAsistencia.TabIndex = 1;
+            this.btnRegistroAsistencia.Text = "📋 Registro de Asistencia";
+            this.btnRegistroAsistencia.UseVisualStyleBackColor = false;
+            this.btnRegistroAsistencia.Click += new System.EventHandler(this.btnRegistroAsistencia_Click);
+            // 
+            // lblModulo1
+            // 
+            this.lblModulo1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblModulo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo1.ForeColor = System.Drawing.Color.White;
+            this.lblModulo1.Location = new System.Drawing.Point(0, 26);
+            this.lblModulo1.Name = "lblModulo1";
+            this.lblModulo1.Size = new System.Drawing.Size(208, 30);
+            this.lblModulo1.TabIndex = 19;
+            this.lblModulo1.Text = "GESTIÓN DE SOCIOS Y ACCESOS";
+            this.lblModulo1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.ForeColor = System.Drawing.Color.White;
+            this.btnInicio.Location = new System.Drawing.Point(0, 0);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(208, 26);
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.Text = "🏠 Inicio";
+            this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(1082, 2);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(101, 28);
+            this.btnCerrarSesion.TabIndex = 18;
+            this.btnCerrarSesion.Text = "🚪 Cerrar Sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // btnConfiguración
+            // 
+            this.btnConfiguración.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfiguración.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnConfiguración.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfiguración.FlatAppearance.BorderSize = 0;
+            this.btnConfiguración.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguración.ForeColor = System.Drawing.Color.White;
+            this.btnConfiguración.Location = new System.Drawing.Point(974, 2);
+            this.btnConfiguración.Margin = new System.Windows.Forms.Padding(0);
+            this.btnConfiguración.Name = "btnConfiguración";
+            this.btnConfiguración.Size = new System.Drawing.Size(104, 28);
+            this.btnConfiguración.TabIndex = 17;
+            this.btnConfiguración.Text = "⚙️ Configuración";
+            this.btnConfiguración.UseVisualStyleBackColor = false;
+            this.btnConfiguración.Click += new System.EventHandler(this.btnConfiguración_Click);
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.AutoScroll = true;
+            this.pnlContenedor.BackColor = System.Drawing.Color.Transparent;
+            this.pnlContenedor.BackgroundImage = global::AsuFit.Properties.Resources.fondo_pantalla_2;
+            this.pnlContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlContenedor.Controls.Add(this.label5);
+            this.pnlContenedor.Location = new System.Drawing.Point(208, 30);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(977, 586);
+            this.pnlContenedor.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(246, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "label5";
+            // 
+            // pnlBarraSuperior
+            // 
+            this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlBarraSuperior.Controls.Add(this.btnEstadoCajaTop);
+            this.pnlBarraSuperior.Controls.Add(this.lblFechaHora);
+            this.pnlBarraSuperior.Controls.Add(this.pictureBox1);
+            this.pnlBarraSuperior.Controls.Add(this.btnNotificaciones);
+            this.pnlBarraSuperior.Controls.Add(this.btnUsuario);
+            this.pnlBarraSuperior.Controls.Add(this.btnConfiguración);
+            this.pnlBarraSuperior.Controls.Add(this.btnCerrarSesion);
+            this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlBarraSuperior.Name = "pnlBarraSuperior";
+            this.pnlBarraSuperior.Size = new System.Drawing.Size(1185, 30);
+            this.pnlBarraSuperior.TabIndex = 2;
+            // 
+            // lblFechaHora
+            // 
+            this.lblFechaHora.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblFechaHora.AutoSize = true;
+            this.lblFechaHora.ForeColor = System.Drawing.Color.White;
+            this.lblFechaHora.Location = new System.Drawing.Point(185, 11);
+            this.lblFechaHora.Name = "lblFechaHora";
+            this.lblFechaHora.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.lblFechaHora.Size = new System.Drawing.Size(80, 13);
+            this.lblFechaHora.TabIndex = 22;
+            this.lblFechaHora.Text = "FechaHora";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AsuFit.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(-20, -13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnNotificaciones
+            // 
+            this.btnNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotificaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnNotificaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotificaciones.FlatAppearance.BorderSize = 0;
+            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificaciones.ForeColor = System.Drawing.Color.White;
+            this.btnNotificaciones.Location = new System.Drawing.Point(645, 2);
+            this.btnNotificaciones.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNotificaciones.Name = "btnNotificaciones";
+            this.btnNotificaciones.Size = new System.Drawing.Size(133, 28);
+            this.btnNotificaciones.TabIndex = 20;
+            this.btnNotificaciones.Text = "🔔 Notificaciones";
+            this.btnNotificaciones.UseVisualStyleBackColor = false;
+            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnUsuario.Location = new System.Drawing.Point(778, 2);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(196, 28);
+            this.btnUsuario.TabIndex = 19;
+            this.btnUsuario.Text = "👤 Usuario";
+            this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            // 
+            // timerReloj
+            // 
+            this.timerReloj.Enabled = true;
+            this.timerReloj.Interval = 1000;
+            this.timerReloj.Tick += new System.EventHandler(this.timerReloj_Tick);
+            // 
+            // btnEstadoCajaTop
+            // 
+            this.btnEstadoCajaTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEstadoCajaTop.AutoSize = true;
+            this.btnEstadoCajaTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnEstadoCajaTop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadoCajaTop.FlatAppearance.BorderSize = 0;
+            this.btnEstadoCajaTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadoCajaTop.ForeColor = System.Drawing.Color.White;
+            this.btnEstadoCajaTop.Location = new System.Drawing.Point(449, 3);
+            this.btnEstadoCajaTop.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEstadoCajaTop.Name = "btnEstadoCajaTop";
+            this.btnEstadoCajaTop.Size = new System.Drawing.Size(196, 28);
+            this.btnEstadoCajaTop.TabIndex = 23;
+            this.btnEstadoCajaTop.Text = "🔴 CAJA: CERRADA";
+            this.btnEstadoCajaTop.UseVisualStyleBackColor = false;
+            this.btnEstadoCajaTop.Click += new System.EventHandler(this.btnEstadoCajaTop_Click);
+            // 
+            // frmDashboard
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ClientSize = new System.Drawing.Size(1185, 616);
+            this.Controls.Add(this.pnlContenedor);
+            this.Controls.Add(this.pnlSidebar);
+            this.Controls.Add(this.pnlBarraSuperior);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.Name = "frmDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "";
+            this.Text = "Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDashboard_FormClosing);
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
+            this.pnlSidebar.ResumeLayout(false);
+            this.pnlContenedor.ResumeLayout(false);
+            this.pnlContenedor.PerformLayout();
+            this.pnlBarraSuperior.ResumeLayout(false);
+            this.pnlBarraSuperior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Button btnRegistrarSocio;
+        private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Button btnGestionSocios;
+        private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.Button btnGestionUsuarios;
+        private System.Windows.Forms.Button btnRegistrarUsuario;
+        private System.Windows.Forms.Button btnRegistroAsistencia;
+        private System.Windows.Forms.Button btnRegistrarCobro;
+        private System.Windows.Forms.Button btnGestionPlanes;
+        private System.Windows.Forms.Button btnArqueoCaja;
+        private System.Windows.Forms.Button btnInventarioVentas;
+        private System.Windows.Forms.Button btnAuditoría;
+        private System.Windows.Forms.Button btnReportesEstadísticas;
+        private System.Windows.Forms.Button btnProveedores;
+        private System.Windows.Forms.Button btnGestionGastos;
+        private System.Windows.Forms.Button btnConfiguración;
+        private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Button btnGestionProductos;
+        private System.Windows.Forms.Button btnIngresoMercaderia;
+        private System.Windows.Forms.Button btnHistorialTransacciones;
+        private System.Windows.Forms.Label lblModulo4;
+        private System.Windows.Forms.Label lblModulo3;
+        private System.Windows.Forms.Label lblModulo2;
+        private System.Windows.Forms.Label lblModulo1;
+        private System.Windows.Forms.Panel pnlBarraSuperior;
+        private System.Windows.Forms.Button btnNotificaciones;
+        private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblFechaHora;
+        private System.Windows.Forms.Timer timerReloj;
+        private System.Windows.Forms.Button btnEstadoCajaTop;
+    }
+}

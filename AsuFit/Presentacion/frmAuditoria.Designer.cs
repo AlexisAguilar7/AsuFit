@@ -1,0 +1,351 @@
+﻿namespace AsuFit.Presentacion
+{
+    partial class frmAuditoria
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAbrirHistorial = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvAuditoria = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cmbFiltroModulo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.colAuditoriaFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAuditoriaUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAuditoriaModulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAuditoriaAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAuditoriaDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnAbrirHistorial);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(787, 208);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Cierres de Caja";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnAbrirHistorial
+            // 
+            this.btnAbrirHistorial.Location = new System.Drawing.Point(8, 73);
+            this.btnAbrirHistorial.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAbrirHistorial.Name = "btnAbrirHistorial";
+            this.btnAbrirHistorial.Size = new System.Drawing.Size(204, 23);
+            this.btnAbrirHistorial.TabIndex = 0;
+            this.btnAbrirHistorial.Text = "📊 ABRIR HISTORIAL DE ARQUEOS";
+            this.btnAbrirHistorial.UseVisualStyleBackColor = true;
+            this.btnAbrirHistorial.Click += new System.EventHandler(this.btnAbrirHistorial_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(350, 26);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Revisá el historial completo de las aperturas y cierres de caja, incluyendo\n los " +
+    "montos declarados, faltantes y el cajero responsable.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "1. CONTROL DE CIERRES DIARIOS";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(884, 234);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dtpHasta);
+            this.tabPage4.Controls.Add(this.txtHasta);
+            this.tabPage4.Controls.Add(this.dtpDesde);
+            this.tabPage4.Controls.Add(this.txtDesde);
+            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.dgvAuditoria);
+            this.tabPage4.Controls.Add(this.txtBuscar);
+            this.tabPage4.Controls.Add(this.cmbFiltroModulo);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(876, 208);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Log del Sistema";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(765, 11);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(15, 20);
+            this.dtpHasta.TabIndex = 39;
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.txtHasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHasta.ForeColor = System.Drawing.Color.White;
+            this.txtHasta.Location = new System.Drawing.Point(678, 11);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.ReadOnly = true;
+            this.txtHasta.Size = new System.Drawing.Size(102, 20);
+            this.txtHasta.TabIndex = 40;
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(592, 11);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(15, 20);
+            this.dtpDesde.TabIndex = 37;
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.txtDesde.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesde.ForeColor = System.Drawing.Color.White;
+            this.txtDesde.Location = new System.Drawing.Point(505, 11);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.ReadOnly = true;
+            this.txtDesde.Size = new System.Drawing.Size(102, 20);
+            this.txtDesde.TabIndex = 38;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(635, 13);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Hasta:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(459, 13);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Desde:";
+            // 
+            // dgvAuditoria
+            // 
+            this.dgvAuditoria.AllowUserToAddRows = false;
+            this.dgvAuditoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAuditoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colAuditoriaFecha,
+            this.colAuditoriaUsuario,
+            this.colAuditoriaModulo,
+            this.colAuditoriaAccion,
+            this.colAuditoriaDetalle});
+            this.dgvAuditoria.Location = new System.Drawing.Point(8, 41);
+            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvAuditoria.Name = "dgvAuditoria";
+            this.dgvAuditoria.RowHeadersVisible = false;
+            this.dgvAuditoria.RowHeadersWidth = 62;
+            this.dgvAuditoria.RowTemplate.Height = 28;
+            this.dgvAuditoria.Size = new System.Drawing.Size(867, 160);
+            this.dgvAuditoria.TabIndex = 2;
+            this.dgvAuditoria.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAuditoria_DataBindingComplete);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(203, 11);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscar.MaxLength = 100;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.ShortcutsEnabled = false;
+            this.txtBuscar.Size = new System.Drawing.Size(241, 20);
+            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // cmbFiltroModulo
+            // 
+            this.cmbFiltroModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltroModulo.FormattingEnabled = true;
+            this.cmbFiltroModulo.Items.AddRange(new object[] {
+            "Todos",
+            "Seguridad",
+            "Caja",
+            "Cobros",
+            "Gastos",
+            "Socios",
+            "Usuarios",
+            "Planes",
+            "Inventario",
+            "Proveedores",
+            "Configuración",
+            "Sistema"});
+            this.cmbFiltroModulo.Location = new System.Drawing.Point(100, 11);
+            this.cmbFiltroModulo.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbFiltroModulo.Name = "cmbFiltroModulo";
+            this.cmbFiltroModulo.Size = new System.Drawing.Size(82, 21);
+            this.cmbFiltroModulo.TabIndex = 0;
+            this.cmbFiltroModulo.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroModulo_SelectedIndexChanged);
+            this.cmbFiltroModulo.DropDownClosed += new System.EventHandler(this.cmbFiltroModulo_DropDownClosed);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 13);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Filtrar por Módulo:";
+            // 
+            // colAuditoriaFecha
+            // 
+            this.colAuditoriaFecha.DataPropertyName = "FechaHora";
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy HH:mm";
+            this.colAuditoriaFecha.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colAuditoriaFecha.FillWeight = 15F;
+            this.colAuditoriaFecha.HeaderText = "Fecha y Hora";
+            this.colAuditoriaFecha.MinimumWidth = 8;
+            this.colAuditoriaFecha.Name = "colAuditoriaFecha";
+            // 
+            // colAuditoriaUsuario
+            // 
+            this.colAuditoriaUsuario.DataPropertyName = "Usuario";
+            this.colAuditoriaUsuario.FillWeight = 15F;
+            this.colAuditoriaUsuario.HeaderText = "Usuario";
+            this.colAuditoriaUsuario.MinimumWidth = 8;
+            this.colAuditoriaUsuario.Name = "colAuditoriaUsuario";
+            // 
+            // colAuditoriaModulo
+            // 
+            this.colAuditoriaModulo.DataPropertyName = "Modulo";
+            this.colAuditoriaModulo.FillWeight = 10F;
+            this.colAuditoriaModulo.HeaderText = "Módulo";
+            this.colAuditoriaModulo.MinimumWidth = 8;
+            this.colAuditoriaModulo.Name = "colAuditoriaModulo";
+            // 
+            // colAuditoriaAccion
+            // 
+            this.colAuditoriaAccion.DataPropertyName = "Accion";
+            this.colAuditoriaAccion.FillWeight = 15F;
+            this.colAuditoriaAccion.HeaderText = "Acción";
+            this.colAuditoriaAccion.MinimumWidth = 8;
+            this.colAuditoriaAccion.Name = "colAuditoriaAccion";
+            // 
+            // colAuditoriaDetalle
+            // 
+            this.colAuditoriaDetalle.DataPropertyName = "Detalle";
+            this.colAuditoriaDetalle.FillWeight = 45F;
+            this.colAuditoriaDetalle.HeaderText = "Detalle";
+            this.colAuditoriaDetalle.MinimumWidth = 8;
+            this.colAuditoriaDetalle.Name = "colAuditoriaDetalle";
+            // 
+            // frmAuditoria
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(884, 234);
+            this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmAuditoria";
+            this.Text = "frmAuditoriaRespaldos";
+            this.Load += new System.EventHandler(this.frmAuditoria_Load);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnAbrirHistorial;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvAuditoria;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cmbFiltroModulo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAuditoriaFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAuditoriaUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAuditoriaModulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAuditoriaAccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAuditoriaDetalle;
+    }
+}
