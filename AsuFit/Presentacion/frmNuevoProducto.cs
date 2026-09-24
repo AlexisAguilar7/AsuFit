@@ -191,7 +191,7 @@ namespace AsuFit.Presentacion
                     // Almacenamiento físico de la imagen si se seleccionó una
                     if (picProducto.Image != null && !string.IsNullOrEmpty(rutaFotoOrigen))
                     {
-                        string carpetaDestino = @"C:\AsuFit_Fotos\";
+                        string carpetaDestino = @"C:\AsuFit\Fotos\Productos\";
                         if (!Directory.Exists(carpetaDestino)) Directory.CreateDirectory(carpetaDestino);
 
                         string rutaDestinoFinal = Path.Combine(carpetaDestino, objProducto.CodigoBarras + ".jpg");

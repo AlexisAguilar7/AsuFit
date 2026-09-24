@@ -20,7 +20,7 @@ namespace AsuFit.Presentacion
         private DataTable dtProductos;
 
         private string rutaFotoOrigen = "";
-        private const string carpetaFotos = @"C:\AsuFit_Fotos\";
+        private const string carpetaFotos = @"C:\AsuFit\Fotos\Productos\";
 
         public frmGestionProductos(Usuario userLogueado)
         {

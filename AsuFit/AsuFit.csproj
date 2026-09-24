@@ -66,6 +66,7 @@
     <Compile Include="Datos\DashboardDatos.cs" />
     <Compile Include="Datos\GastoDatos.cs" />
     <Compile Include="Datos\GestorAuditoria.cs" />
+    <Compile Include="Datos\HistorialFisicoDatos.cs" />
     <Compile Include="Datos\IngresoMercaderiaDatos.cs" />
     <Compile Include="Datos\InventarioDatos.cs" />
     <Compile Include="Datos\PlanDatos.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Entidades\Configuracion.cs" />
     <Compile Include="Entidades\DetalleVenta.cs" />
     <Compile Include="Entidades\Gasto.cs" />
+    <Compile Include="Entidades\HistorialFisico.cs" />
     <Compile Include="Entidades\Pago.cs" />
     <Compile Include="Entidades\Plan.cs" />
     <Compile Include="Entidades\Producto.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Negocio\ConfiguracionNegocio.cs" />
     <Compile Include="Negocio\DashboardNegocio.cs" />
     <Compile Include="Negocio\GastoNegocio.cs" />
+    <Compile Include="Negocio\HistorialFisicoNegocio.cs" />
     <Compile Include="Negocio\IngresoMercaderiaNegocio.cs" />
     <Compile Include="Negocio\InventarioNegocio.cs" />
     <Compile Include="Negocio\PlanNegocio.cs" />
@@ -187,6 +190,12 @@
     <Compile Include="Presentacion\frmHistorialArqueos.Designer.cs">
       <DependentUpon>frmHistorialArqueos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmHistorialFisicoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmHistorialFisicoDetalle.Designer.cs">
+      <DependentUpon>frmHistorialFisicoDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmHistorialTransacciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +251,12 @@
     </Compile>
     <Compile Include="Presentacion\frmNuevoProducto.Designer.cs">
       <DependentUpon>frmNuevoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmProgresoFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmProgresoFisico.Designer.cs">
+      <DependentUpon>frmProgresoFisico.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmProveedores.cs">
       <SubType>Form</SubType>
@@ -342,6 +357,9 @@
     <EmbeddedResource Include="Presentacion\frmHistorialArqueos.resx">
       <DependentUpon>frmHistorialArqueos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmHistorialFisicoDetalle.resx">
+      <DependentUpon>frmHistorialFisicoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmHistorialTransacciones.resx">
       <DependentUpon>frmHistorialTransacciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmNuevoProducto.resx">
       <DependentUpon>frmNuevoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmProgresoFisico.resx">
+      <DependentUpon>frmProgresoFisico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>

@@ -475,7 +475,7 @@ namespace AsuFit.Presentacion
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 string codigo = row["CodigoBarras"].ToString();
-                string rutaFoto = @"C:\AsuFit_Fotos\" + codigo + ".jpg";
+                string rutaFoto = @"C:\AsuFit\Fotos\Productos\" + codigo + ".jpg";
 
                 if (System.IO.File.Exists(rutaFoto))
                 {

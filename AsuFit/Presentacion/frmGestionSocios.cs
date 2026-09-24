@@ -296,6 +296,43 @@ namespace AsuFit.Presentacion
         #endregion
 
         #region 6. BOTONES DE ACCIÓN (CRUD)
+        // Abre el dashboard de historial físico enviando el socio seleccionado con todos sus datos.
+        private void btnProgresoFisico_Click(object sender, EventArgs e)
+        {
+            if (idSocioSeleccionado > 0)
+            {
+                DataGridViewRow fila = dgvSocios.CurrentRow;
+
+                // Capturamos todos los datos que ya están en la grilla sin consultar a SQL
+                Socio socioParaProgreso = new Socio
+                {
+                    IdSocio = idSocioSeleccionado,
+                    Nombre = fila.Cells[dgvSocios.Columns.Contains("colSocioNombre") ? "colSocioNombre" : "Nombre"].Value?.ToString() ?? "",
+                    Apellido = fila.Cells[dgvSocios.Columns.Contains("colSocioApellido") ? "colSocioApellido" : "Apellido"].Value?.ToString() ?? "",
+                    Cedula = fila.Cells[dgvSocios.Columns.Contains("colSocioCedula") ? "colSocioCedula" : "Cedula"].Value?.ToString() ?? "",
+                    Telefono = fila.Cells[dgvSocios.Columns.Contains("colSocioTelefono") ? "colSocioTelefono" : "Telefono"].Value?.ToString() ?? "No registrado",
+                    Estado = fila.Cells[dgvSocios.Columns.Contains("colSocioEstado") ? "colSocioEstado" : "Estado"].Value?.ToString() ?? "Activo",
+                    NombrePlan = fila.Cells[dgvSocios.Columns.Contains("colSocioPlan") ? "colSocioPlan" : (dgvSocios.Columns.Contains("TipoPlan") ? "TipoPlan" : "Plan")].Value?.ToString() ?? "No asignado"
+                };
+
+                string colVencimiento = dgvSocios.Columns.Contains("colSocioVencimiento") ? "colSocioVencimiento" : "Vencimiento";
+                if (fila.Cells[colVencimiento].Value != null && fila.Cells[colVencimiento].Value != DBNull.Value)
+                {
+                    if (DateTime.TryParse(fila.Cells[colVencimiento].Value.ToString(), out DateTime fechaVenc))
+                        socioParaProgreso.FechaVencimiento = fechaVenc;
+                }
+
+                // Instanciamos el formulario enviando el objeto completo
+                frmProgresoFisico frmProgreso = new frmProgresoFisico(socioParaProgreso);
+                PrepararFormularioComoDashboard(frmProgreso);
+                frmProgreso.ShowDialog();
+            }
+            else
+            {
+                MensajeAsuFit.Mostrar("Por favor, selecciona a un socio de la lista para ver su progreso físico.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         // Instancia el formulario para registrar un nuevo socio validando primero la apertura de caja
         private void btnNuevo_Click(object sender, EventArgs e)
         {
