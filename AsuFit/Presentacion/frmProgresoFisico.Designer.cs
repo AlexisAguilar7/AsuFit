@@ -28,29 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblEstadoSocio = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblImcActual = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblGrasaActual = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblPesoActual = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblAlturaActual = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblVencimiento = new System.Windows.Forms.Label();
-            this.lblPlanActual = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.lblCedula = new System.Windows.Forms.Label();
-            this.lblNombreSocio = new System.Windows.Forms.Label();
-            this.pbFotoSocio = new System.Windows.Forms.PictureBox();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -78,228 +58,43 @@
             this.btnFiltroGrasa = new System.Windows.Forms.Button();
             this.btnFiltroAltura = new System.Windows.Forms.Button();
             this.btnFiltroPeso = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPlanActual = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSubirFoto = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.lblEstadoSocio = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblImcActual = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblGrasaActual = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblPesoActual = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblAlturaActual = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblVencimiento = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.lblNombreSocio = new System.Windows.Forms.Label();
+            this.pbFotoSocio = new System.Windows.Forms.PictureBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEvolucion)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoSocio)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartEvolucion)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnSubirFoto);
-            this.panel1.Controls.Add(this.lblEstadoSocio);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblVencimiento);
-            this.panel1.Controls.Add(this.lblPlanActual);
-            this.panel1.Controls.Add(this.lblTelefono);
-            this.panel1.Controls.Add(this.lblCedula);
-            this.panel1.Controls.Add(this.lblNombreSocio);
-            this.panel1.Controls.Add(this.pbFotoSocio);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 118);
-            this.panel1.TabIndex = 0;
-            // 
-            // lblEstadoSocio
-            // 
-            this.lblEstadoSocio.AutoSize = true;
-            this.lblEstadoSocio.ForeColor = System.Drawing.Color.White;
-            this.lblEstadoSocio.Location = new System.Drawing.Point(272, 17);
-            this.lblEstadoSocio.Name = "lblEstadoSocio";
-            this.lblEstadoSocio.Size = new System.Drawing.Size(51, 13);
-            this.lblEstadoSocio.TabIndex = 10;
-            this.lblEstadoSocio.Text = "ESTADO";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.panel5.Controls.Add(this.lblImcActual);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(671, 17);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(91, 91);
-            this.panel5.TabIndex = 9;
-            // 
-            // lblImcActual
-            // 
-            this.lblImcActual.AutoSize = true;
-            this.lblImcActual.ForeColor = System.Drawing.Color.White;
-            this.lblImcActual.Location = new System.Drawing.Point(34, 49);
-            this.lblImcActual.Name = "lblImcActual";
-            this.lblImcActual.Size = new System.Drawing.Size(13, 13);
-            this.lblImcActual.TabIndex = 15;
-            this.lblImcActual.Text = "0";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(30, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "IMC";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.panel4.Controls.Add(this.lblGrasaActual);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(574, 17);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(91, 91);
-            this.panel4.TabIndex = 8;
-            // 
-            // lblGrasaActual
-            // 
-            this.lblGrasaActual.AutoSize = true;
-            this.lblGrasaActual.ForeColor = System.Drawing.Color.White;
-            this.lblGrasaActual.Location = new System.Drawing.Point(34, 49);
-            this.lblGrasaActual.Name = "lblGrasaActual";
-            this.lblGrasaActual.Size = new System.Drawing.Size(24, 13);
-            this.lblGrasaActual.TabIndex = 14;
-            this.lblGrasaActual.Text = "0 %";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(7, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 13);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Grasa corporal";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.panel3.Controls.Add(this.lblPesoActual);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(477, 17);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(91, 91);
-            this.panel3.TabIndex = 7;
-            // 
-            // lblPesoActual
-            // 
-            this.lblPesoActual.AutoSize = true;
-            this.lblPesoActual.ForeColor = System.Drawing.Color.White;
-            this.lblPesoActual.Location = new System.Drawing.Point(31, 49);
-            this.lblPesoActual.Name = "lblPesoActual";
-            this.lblPesoActual.Size = new System.Drawing.Size(28, 13);
-            this.lblPesoActual.TabIndex = 13;
-            this.lblPesoActual.Text = "0 kg";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Peso corporal";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.panel2.Controls.Add(this.lblAlturaActual);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(380, 17);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(91, 91);
-            this.panel2.TabIndex = 6;
-            // 
-            // lblAlturaActual
-            // 
-            this.lblAlturaActual.AutoSize = true;
-            this.lblAlturaActual.ForeColor = System.Drawing.Color.White;
-            this.lblAlturaActual.Location = new System.Drawing.Point(30, 49);
-            this.lblAlturaActual.Name = "lblAlturaActual";
-            this.lblAlturaActual.Size = new System.Drawing.Size(30, 13);
-            this.lblAlturaActual.TabIndex = 12;
-            this.lblAlturaActual.Text = "0 cm";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(29, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Altura";
-            // 
-            // lblVencimiento
-            // 
-            this.lblVencimiento.AutoSize = true;
-            this.lblVencimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
-            this.lblVencimiento.ForeColor = System.Drawing.Color.White;
-            this.lblVencimiento.Location = new System.Drawing.Point(143, 95);
-            this.lblVencimiento.Name = "lblVencimiento";
-            this.lblVencimiento.Size = new System.Drawing.Size(68, 13);
-            this.lblVencimiento.TabIndex = 5;
-            this.lblVencimiento.Text = "Vencimiento:";
-            // 
-            // lblPlanActual
-            // 
-            this.lblPlanActual.AutoSize = true;
-            this.lblPlanActual.ForeColor = System.Drawing.Color.White;
-            this.lblPlanActual.Location = new System.Drawing.Point(143, 76);
-            this.lblPlanActual.Name = "lblPlanActual";
-            this.lblPlanActual.Size = new System.Drawing.Size(63, 13);
-            this.lblPlanActual.TabIndex = 4;
-            this.lblPlanActual.Text = "Plan actual:";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(143, 56);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(52, 13);
-            this.lblTelefono.TabIndex = 3;
-            this.lblTelefono.Text = "Teléfono:";
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.ForeColor = System.Drawing.Color.White;
-            this.lblCedula.Location = new System.Drawing.Point(143, 37);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(43, 13);
-            this.lblCedula.TabIndex = 2;
-            this.lblCedula.Text = "Cédula:";
-            // 
-            // lblNombreSocio
-            // 
-            this.lblNombreSocio.AutoSize = true;
-            this.lblNombreSocio.ForeColor = System.Drawing.Color.White;
-            this.lblNombreSocio.Location = new System.Drawing.Point(143, 17);
-            this.lblNombreSocio.Name = "lblNombreSocio";
-            this.lblNombreSocio.Size = new System.Drawing.Size(108, 13);
-            this.lblNombreSocio.TabIndex = 1;
-            this.lblNombreSocio.Text = "NOMBRE DE SOCIO";
-            // 
-            // pbFotoSocio
-            // 
-            this.pbFotoSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.pbFotoSocio.Location = new System.Drawing.Point(42, 17);
-            this.pbFotoSocio.Name = "pbFotoSocio";
-            this.pbFotoSocio.Size = new System.Drawing.Size(60, 60);
-            this.pbFotoSocio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFotoSocio.TabIndex = 0;
-            this.pbFotoSocio.TabStop = false;
             // 
             // groupBox1
             // 
@@ -321,7 +116,7 @@
             this.groupBox1.Controls.Add(this.dtpFechaEvaluacion);
             this.groupBox1.Controls.Add(this.txtFechaVisual);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 137);
+            this.groupBox1.Location = new System.Drawing.Point(6, 146);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(287, 373);
             this.groupBox1.TabIndex = 1;
@@ -509,7 +304,7 @@
             this.groupBox2.Controls.Add(this.btnFiltroAltura);
             this.groupBox2.Controls.Add(this.btnFiltroPeso);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(305, 137);
+            this.groupBox2.Location = new System.Drawing.Point(299, 146);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(483, 373);
             this.groupBox2.TabIndex = 2;
@@ -522,7 +317,7 @@
             this.btnVerHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerHistorial.ForeColor = System.Drawing.Color.Black;
-            this.btnVerHistorial.Location = new System.Drawing.Point(177, 334);
+            this.btnVerHistorial.Location = new System.Drawing.Point(180, 334);
             this.btnVerHistorial.Name = "btnVerHistorial";
             this.btnVerHistorial.Size = new System.Drawing.Size(124, 23);
             this.btnVerHistorial.TabIndex = 49;
@@ -552,18 +347,18 @@
             // 
             // chartEvolucion
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartEvolucion.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.chartEvolucion.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chartEvolucion.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chartEvolucion.Legends.Add(legend1);
             this.chartEvolucion.Location = new System.Drawing.Point(19, 11);
             this.chartEvolucion.Margin = new System.Windows.Forms.Padding(2);
             this.chartEvolucion.Name = "chartEvolucion";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartEvolucion.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartEvolucion.Series.Add(series1);
             this.chartEvolucion.Size = new System.Drawing.Size(377, 234);
             this.chartEvolucion.TabIndex = 6;
             this.chartEvolucion.Text = "chart1";
@@ -574,7 +369,7 @@
             this.btnFiltroIMC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroIMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltroIMC.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltroIMC.Location = new System.Drawing.Point(367, 24);
+            this.btnFiltroIMC.Location = new System.Drawing.Point(369, 24);
             this.btnFiltroIMC.Name = "btnFiltroIMC";
             this.btnFiltroIMC.Size = new System.Drawing.Size(102, 23);
             this.btnFiltroIMC.TabIndex = 52;
@@ -588,7 +383,7 @@
             this.btnFiltroGrasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroGrasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltroGrasa.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltroGrasa.Location = new System.Drawing.Point(245, 24);
+            this.btnFiltroGrasa.Location = new System.Drawing.Point(251, 24);
             this.btnFiltroGrasa.Name = "btnFiltroGrasa";
             this.btnFiltroGrasa.Size = new System.Drawing.Size(102, 23);
             this.btnFiltroGrasa.TabIndex = 51;
@@ -602,7 +397,7 @@
             this.btnFiltroAltura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroAltura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltroAltura.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltroAltura.Location = new System.Drawing.Point(125, 24);
+            this.btnFiltroAltura.Location = new System.Drawing.Point(131, 24);
             this.btnFiltroAltura.Name = "btnFiltroAltura";
             this.btnFiltroAltura.Size = new System.Drawing.Size(102, 23);
             this.btnFiltroAltura.TabIndex = 50;
@@ -616,7 +411,7 @@
             this.btnFiltroPeso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltroPeso.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltroPeso.Location = new System.Drawing.Point(6, 24);
+            this.btnFiltroPeso.Location = new System.Drawing.Point(12, 24);
             this.btnFiltroPeso.Name = "btnFiltroPeso";
             this.btnFiltroPeso.Size = new System.Drawing.Size(102, 23);
             this.btnFiltroPeso.TabIndex = 49;
@@ -624,75 +419,314 @@
             this.btnFiltroPeso.UseVisualStyleBackColor = false;
             this.btnFiltroPeso.Click += new System.EventHandler(this.btnFiltroPeso_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.lblPlanActual);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.btnSubirFoto);
+            this.groupBox3.Controls.Add(this.lblEstadoSocio);
+            this.groupBox3.Controls.Add(this.panel5);
+            this.groupBox3.Controls.Add(this.panel4);
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.panel2);
+            this.groupBox3.Controls.Add(this.lblVencimiento);
+            this.groupBox3.Controls.Add(this.lblTelefono);
+            this.groupBox3.Controls.Add(this.lblCedula);
+            this.groupBox3.Controls.Add(this.lblNombreSocio);
+            this.groupBox3.Controls.Add(this.pbFotoSocio);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(6, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(776, 128);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PERFIL DEL SOCIO";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.label4.ForeColor = System.Drawing.Color.LightGray;
+            this.label4.Location = new System.Drawing.Point(156, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Vencimiento:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.Location = new System.Drawing.Point(156, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Plan actual:";
+            // 
+            // lblPlanActual
+            // 
+            this.lblPlanActual.AutoSize = true;
+            this.lblPlanActual.ForeColor = System.Drawing.Color.White;
+            this.lblPlanActual.Location = new System.Drawing.Point(215, 78);
+            this.lblPlanActual.Name = "lblPlanActual";
+            this.lblPlanActual.Size = new System.Drawing.Size(16, 13);
+            this.lblPlanActual.TabIndex = 20;
+            this.lblPlanActual.Text = "...";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.Location = new System.Drawing.Point(156, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Teléfono:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(156, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Cédula:";
+            // 
             // btnSubirFoto
             // 
             this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubirFoto.ForeColor = System.Drawing.Color.White;
-            this.btnSubirFoto.Location = new System.Drawing.Point(25, 83);
+            this.btnSubirFoto.Location = new System.Drawing.Point(38, 85);
             this.btnSubirFoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(93, 25);
-            this.btnSubirFoto.TabIndex = 11;
+            this.btnSubirFoto.TabIndex = 27;
             this.btnSubirFoto.Text = "SUBIR FOTO";
             this.btnSubirFoto.UseVisualStyleBackColor = true;
             this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
             // 
+            // lblEstadoSocio
+            // 
+            this.lblEstadoSocio.AutoSize = true;
+            this.lblEstadoSocio.ForeColor = System.Drawing.Color.White;
+            this.lblEstadoSocio.Location = new System.Drawing.Point(285, 19);
+            this.lblEstadoSocio.Name = "lblEstadoSocio";
+            this.lblEstadoSocio.Size = new System.Drawing.Size(51, 13);
+            this.lblEstadoSocio.TabIndex = 26;
+            this.lblEstadoSocio.Text = "ESTADO";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.panel5.Controls.Add(this.lblImcActual);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Location = new System.Drawing.Point(633, 19);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(91, 91);
+            this.panel5.TabIndex = 25;
+            // 
+            // lblImcActual
+            // 
+            this.lblImcActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImcActual.ForeColor = System.Drawing.Color.White;
+            this.lblImcActual.Location = new System.Drawing.Point(6, 49);
+            this.lblImcActual.Name = "lblImcActual";
+            this.lblImcActual.Size = new System.Drawing.Size(82, 13);
+            this.lblImcActual.TabIndex = 15;
+            this.lblImcActual.Text = "0";
+            this.lblImcActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(3, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "IMC";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.panel4.Controls.Add(this.lblGrasaActual);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Location = new System.Drawing.Point(537, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(91, 91);
+            this.panel4.TabIndex = 24;
+            // 
+            // lblGrasaActual
+            // 
+            this.lblGrasaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrasaActual.ForeColor = System.Drawing.Color.White;
+            this.lblGrasaActual.Location = new System.Drawing.Point(4, 49);
+            this.lblGrasaActual.Name = "lblGrasaActual";
+            this.lblGrasaActual.Size = new System.Drawing.Size(84, 13);
+            this.lblGrasaActual.TabIndex = 14;
+            this.lblGrasaActual.Text = "0 %";
+            this.lblGrasaActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(0, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Grasa corporal";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.panel3.Controls.Add(this.lblPesoActual);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(442, 19);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(91, 91);
+            this.panel3.TabIndex = 23;
+            // 
+            // lblPesoActual
+            // 
+            this.lblPesoActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPesoActual.ForeColor = System.Drawing.Color.White;
+            this.lblPesoActual.Location = new System.Drawing.Point(3, 49);
+            this.lblPesoActual.Name = "lblPesoActual";
+            this.lblPesoActual.Size = new System.Drawing.Size(85, 13);
+            this.lblPesoActual.TabIndex = 13;
+            this.lblPesoActual.Text = "0 kg";
+            this.lblPesoActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(0, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Peso corporal";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.panel2.Controls.Add(this.lblAlturaActual);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(347, 19);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(91, 91);
+            this.panel2.TabIndex = 22;
+            // 
+            // lblAlturaActual
+            // 
+            this.lblAlturaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlturaActual.ForeColor = System.Drawing.Color.White;
+            this.lblAlturaActual.Location = new System.Drawing.Point(0, 49);
+            this.lblAlturaActual.Name = "lblAlturaActual";
+            this.lblAlturaActual.Size = new System.Drawing.Size(88, 13);
+            this.lblAlturaActual.TabIndex = 12;
+            this.lblAlturaActual.Text = "0 cm";
+            this.lblAlturaActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Altura";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblVencimiento
+            // 
+            this.lblVencimiento.AutoSize = true;
+            this.lblVencimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.lblVencimiento.ForeColor = System.Drawing.Color.White;
+            this.lblVencimiento.Location = new System.Drawing.Point(220, 97);
+            this.lblVencimiento.Name = "lblVencimiento";
+            this.lblVencimiento.Size = new System.Drawing.Size(16, 13);
+            this.lblVencimiento.TabIndex = 21;
+            this.lblVencimiento.Text = "...";
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.ForeColor = System.Drawing.Color.White;
+            this.lblTelefono.Location = new System.Drawing.Point(204, 58);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(16, 13);
+            this.lblTelefono.TabIndex = 19;
+            this.lblTelefono.Text = "...";
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.ForeColor = System.Drawing.Color.White;
+            this.lblCedula.Location = new System.Drawing.Point(195, 39);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(16, 13);
+            this.lblCedula.TabIndex = 18;
+            this.lblCedula.Text = "...";
+            // 
+            // lblNombreSocio
+            // 
+            this.lblNombreSocio.AutoSize = true;
+            this.lblNombreSocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreSocio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.lblNombreSocio.Location = new System.Drawing.Point(156, 19);
+            this.lblNombreSocio.Name = "lblNombreSocio";
+            this.lblNombreSocio.Size = new System.Drawing.Size(123, 13);
+            this.lblNombreSocio.TabIndex = 17;
+            this.lblNombreSocio.Text = "NOMBRE DE SOCIO";
+            // 
+            // pbFotoSocio
+            // 
+            this.pbFotoSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.pbFotoSocio.Location = new System.Drawing.Point(55, 19);
+            this.pbFotoSocio.Name = "pbFotoSocio";
+            this.pbFotoSocio.Size = new System.Drawing.Size(60, 60);
+            this.pbFotoSocio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFotoSocio.TabIndex = 16;
+            this.pbFotoSocio.TabStop = false;
+            // 
             // frmProgresoFisico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(800, 552);
+            this.ClientSize = new System.Drawing.Size(787, 523);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmProgresoFisico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProgresoFisico";
             this.Load += new System.EventHandler(this.FrmProgresoFisico_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoSocio)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartEvolucion)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoSocio)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblPlanActual;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.Label lblNombreSocio;
-        private System.Windows.Forms.PictureBox pbFotoSocio;
-        private System.Windows.Forms.Label lblVencimiento;
-        private System.Windows.Forms.Label lblEstadoSocio;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblImcActual;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblGrasaActual;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblPesoActual;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblAlturaActual;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpFechaEvaluacion;
         private System.Windows.Forms.TextBox txtFechaVisual;
@@ -720,6 +754,31 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEvolucion;
         private System.Windows.Forms.Button btnVerHistorial;
         private System.Windows.Forms.Button btnCerrar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPlanActual;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSubirFoto;
+        private System.Windows.Forms.Label lblEstadoSocio;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblImcActual;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblGrasaActual;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblPesoActual;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblAlturaActual;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblVencimiento;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblNombreSocio;
+        private System.Windows.Forms.PictureBox pbFotoSocio;
     }
 }

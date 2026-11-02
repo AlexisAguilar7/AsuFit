@@ -72,6 +72,7 @@
     <Compile Include="Datos\PlanDatos.cs" />
     <Compile Include="Datos\ProveedorDatos.cs" />
     <Compile Include="Datos\ReportesDatos.cs" />
+    <Compile Include="Datos\RolDatos.cs" />
     <Compile Include="Datos\SocioDatos.cs" />
     <Compile Include="Datos\UsuarioDatos.cs" />
     <Compile Include="Datos\VentaDatos.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Negocio\PlanNegocio.cs" />
     <Compile Include="Negocio\ProveedorNegocio.cs" />
     <Compile Include="Negocio\ReportesNegocio.cs" />
+    <Compile Include="Negocio\RolNegocio.cs" />
     <Compile Include="Negocio\SeguridadHelper.cs" />
     <Compile Include="Negocio\VentaNegocio.cs" />
     <Compile Include="Presentacion\frmAbrirCaja.cs">
@@ -166,6 +168,12 @@
     <Compile Include="Presentacion\frmGestionGastos.Designer.cs">
       <DependentUpon>frmGestionGastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmGestionPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmGestionPermisos.Designer.cs">
+      <DependentUpon>frmGestionPermisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmGestionPlanes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +185,12 @@
     </Compile>
     <Compile Include="Presentacion\frmGestionProductos.Designer.cs">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmGestionRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmGestionRoles.Designer.cs">
+      <DependentUpon>frmGestionRoles.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmGestionUsuarios.cs">
       <SubType>Form</SubType>
@@ -288,6 +302,12 @@
     <Compile Include="Presentacion\frmRegistrarPlan.Designer.cs">
       <DependentUpon>frmRegistrarPlan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmRegistrarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmRegistrarRol.Designer.cs">
+      <DependentUpon>frmRegistrarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmRegistrarSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +331,12 @@
     </Compile>
     <Compile Include="Presentacion\frmResumenArqueo.Designer.cs">
       <DependentUpon>frmResumenArqueo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmRoles.Designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -345,11 +371,17 @@
     <EmbeddedResource Include="Presentacion\frmGestionGastos.resx">
       <DependentUpon>frmGestionGastos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmGestionPermisos.resx">
+      <DependentUpon>frmGestionPermisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmGestionPlanes.resx">
       <DependentUpon>frmGestionPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmGestionProductos.resx">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmGestionRoles.resx">
+      <DependentUpon>frmGestionRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmGestionUsuarios.resx">
       <DependentUpon>frmGestionUsuarios.cs</DependentUpon>
@@ -402,6 +434,9 @@
     <EmbeddedResource Include="Presentacion\frmRegistrarPlan.resx">
       <DependentUpon>frmRegistrarPlan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmRegistrarRol.resx">
+      <DependentUpon>frmRegistrarRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmRegistrarSocio.resx">
       <DependentUpon>frmRegistrarSocio.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmResumenArqueo.resx">
       <DependentUpon>frmResumenArqueo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

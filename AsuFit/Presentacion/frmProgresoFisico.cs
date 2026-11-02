@@ -1,4 +1,5 @@
-﻿using AsuFit.Entidades;
+﻿using AsuFit.Datos;
+using AsuFit.Entidades;
 using AsuFit.Negocio;
 using System;
 using System.Data;
@@ -13,16 +14,18 @@ namespace AsuFit.Presentacion
     {
         #region 1. VARIABLES Y CONSTRUCTOR
         private Socio _socioActual; // Cambiamos los datos sueltos por el objeto completo
+        private Usuario _usuarioActual;
         private DataTable _dtHistorial;
         private HistorialFisicoNegocio _negocioHistorial = new HistorialFisicoNegocio();
         private string _rutaFotoOrigen = "";
         private const string _carpetaFotosSocios = @"C:\AsuFit\Fotos\Socios\";
 
         // Inicializa el formulario recibiendo el objeto Socio con sus datos estáticos.
-        public frmProgresoFisico(Socio socio)
+        public frmProgresoFisico(Socio socio, Usuario usuario)
         {
             InitializeComponent();
             _socioActual = socio;
+            _usuarioActual = usuario;
             this.Load += FrmProgresoFisico_Load;
         }
         #endregion
@@ -46,24 +49,22 @@ namespace AsuFit.Presentacion
             chartEvolucion.Series.Clear();
         }
 
-        // Recupera los datos personales del socio desde la memoria y su última métrica corporal desde SQL.
+        // Recupera los datos personales del socio desde la memoria y su última métrica corporal desde SQL, asignando únicamente los valores puros a los controles visuales.
         private void CargarDatosSocio()
         {
-            // 1. Cargar datos personales directamente desde el objeto en memoria (0 delay)
             lblNombreSocio.Text = $"{_socioActual.Nombre} {_socioActual.Apellido}".Trim();
-            lblCedula.Text = "Cédula: " + _socioActual.Cedula;
-            lblTelefono.Text = "Teléfono: " + _socioActual.Telefono;
-            lblPlanActual.Text = "Plan actual: " + _socioActual.NombrePlan;
+            lblCedula.Text = _socioActual.Cedula;
+            lblTelefono.Text = _socioActual.Telefono;
+            lblPlanActual.Text = _socioActual.NombrePlan;
 
             lblEstadoSocio.Text = _socioActual.Estado;
             lblEstadoSocio.ForeColor = _socioActual.Estado == "Activo" ? Color.LimeGreen : Color.LightCoral;
 
             if (_socioActual.FechaVencimiento.HasValue)
-                lblVencimiento.Text = "Vencimiento: " + _socioActual.FechaVencimiento.Value.ToString("dd'/'MM'/'yyyy");
+                lblVencimiento.Text = _socioActual.FechaVencimiento.Value.ToString("dd'/'MM'/'yyyy");
             else
-                lblVencimiento.Text = "Vencimiento: Sin plan activo";
+                lblVencimiento.Text = "Sin plan activo";
 
-            // 2. Cargar la última medición física para los recuadros superiores
             _dtHistorial = _negocioHistorial.ObtenerHistorialPorSocio(_socioActual.IdSocio);
             if (_dtHistorial != null && _dtHistorial.Rows.Count > 0)
             {
@@ -85,7 +86,6 @@ namespace AsuFit.Presentacion
                 lblImcActual.Text = "0";
             }
 
-            // 3. Cargar la foto de perfil del socio (si existe)
             string rutaFotoPerfil = _carpetaFotosSocios + _socioActual.Cedula + ".jpg";
             if (File.Exists(rutaFotoPerfil))
             {
@@ -96,7 +96,7 @@ namespace AsuFit.Presentacion
             }
             else
             {
-                pbFotoSocio.Image = null; // Muestra vacío si no tiene foto
+                pbFotoSocio.Image = null;
             }
         }
 
@@ -175,6 +175,8 @@ namespace AsuFit.Presentacion
 
             if (exito)
             {
+                GestorAuditoria.Registrar(_usuarioActual.NombreCompleto, "Progreso Físico", "Evaluación Registrada", $"Se cargó un nuevo progreso para el socio {_socioActual.Nombre} {_socioActual.Apellido}.");
+                
                 MessageBox.Show("Evaluación guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();
                 ActualizarPanelGrafico();
@@ -217,6 +219,8 @@ namespace AsuFit.Presentacion
                     }
                     File.Copy(_rutaFotoOrigen, rutaDestino);
 
+                    GestorAuditoria.Registrar(_usuarioActual.NombreCompleto, "Progreso Físico", "Foto Actualizada", $"Se actualizó la fotografía de perfil del socio {_socioActual.Nombre} {_socioActual.Apellido}.");
+
                     MessageBox.Show("Foto de perfil actualizada y guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (OutOfMemoryException)
@@ -247,9 +251,18 @@ namespace AsuFit.Presentacion
             txtPeso.Focus();
         }
 
-        // Cierra el formulario actual y retorna a la ventana anterior.
+        // Finaliza la visualización del progreso físico y redirige dinámicamente al módulo de gestión de socios en el Dashboard para mantener la consistencia de la interfaz de una sola página.
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            Form dashboard = Application.OpenForms["frmDashboard"];
+            if (dashboard != null)
+            {
+                Control[] botones = dashboard.Controls.Find("btnGestionSocios", true);
+                if (botones.Length > 0 && botones[0] is Button btnSocios)
+                {
+                    btnSocios.PerformClick();
+                }
+            }
             this.Close();
         }
         #endregion

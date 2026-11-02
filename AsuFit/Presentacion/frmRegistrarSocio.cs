@@ -20,7 +20,7 @@ namespace AsuFit.Presentacion
             InitializeComponent();
             usuarioActual = userLogueado;
 
-            // FIX ARQUITECTÓNICO: Garantiza el enlace absoluto del evento Load programáticamente
+            // Garantiza el enlace absoluto del evento Load programáticamente
             this.Load += new EventHandler(frmRegistrarSocio_Load);
         }
 
@@ -43,7 +43,7 @@ namespace AsuFit.Presentacion
             btnGuardar.Location = new Point(posX, btnGuardar.Location.Y);
             btnCancelar.Location = new Point(posX + btnGuardar.Width + separacion, btnCancelar.Location.Y);
 
-            // FIX ARQUITECTÓNICO: Garantiza el enlace absoluto del evento Load programáticamente
+            // Garantiza el enlace absoluto del evento Load programáticamente
             this.Load += new EventHandler(frmRegistrarSocio_Load);
 
             CargarDatosEnPantalla();

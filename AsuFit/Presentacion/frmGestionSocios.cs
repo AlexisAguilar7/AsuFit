@@ -296,14 +296,13 @@ namespace AsuFit.Presentacion
         #endregion
 
         #region 6. BOTONES DE ACCIÓN (CRUD)
-        // Abre el dashboard de historial físico enviando el socio seleccionado con todos sus datos.
+        // Abre el dashboard de historial físico incrustándolo en el panel central del sistema en lugar de usar ventana flotante.
         private void btnProgresoFisico_Click(object sender, EventArgs e)
         {
             if (idSocioSeleccionado > 0)
             {
                 DataGridViewRow fila = dgvSocios.CurrentRow;
 
-                // Capturamos todos los datos que ya están en la grilla sin consultar a SQL
                 Socio socioParaProgreso = new Socio
                 {
                     IdSocio = idSocioSeleccionado,
@@ -322,10 +321,27 @@ namespace AsuFit.Presentacion
                         socioParaProgreso.FechaVencimiento = fechaVenc;
                 }
 
-                // Instanciamos el formulario enviando el objeto completo
-                frmProgresoFisico frmProgreso = new frmProgresoFisico(socioParaProgreso);
-                PrepararFormularioComoDashboard(frmProgreso);
-                frmProgreso.ShowDialog();
+                frmProgresoFisico frmProgreso = new frmProgresoFisico(socioParaProgreso, usuarioActual);
+
+                frmProgreso.TopLevel = false;
+                frmProgreso.FormBorderStyle = FormBorderStyle.None;
+
+                float escalaActual = Properties.Settings.Default.EscalaInterfaz;
+                frmProgreso.Scale(new SizeF(escalaActual, escalaActual));
+                AjustarFuentes(frmProgreso);
+
+                if (this.Parent != null)
+                {
+                    Panel pnlCentral = (Panel)this.Parent;
+                    pnlCentral.Controls.Clear();
+
+                    int x = (pnlCentral.Width - frmProgreso.Width) / 2;
+                    int y = (pnlCentral.Height - frmProgreso.Height) / 2;
+                    frmProgreso.Location = new Point(x > 0 ? x : 0, y > 0 ? y : 0);
+
+                    pnlCentral.Controls.Add(frmProgreso);
+                    frmProgreso.Show();
+                }
             }
             else
             {

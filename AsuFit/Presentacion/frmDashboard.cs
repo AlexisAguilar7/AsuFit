@@ -66,37 +66,87 @@ namespace AsuFit.Presentacion
             this.CenterToScreen();
 
             // =====================================================================
-            // 4. RESTRICCIÓN DE ACCESOS POR ROLES (RBAC)
+            // 4. RESTRICCIÓN DE ACCESOS POR ROLES (RBAC DINÁMICO BD)
             // =====================================================================
-            if (usuarioActual.Rol == "Recepcionista")
+
+            if (!string.IsNullOrEmpty(usuarioActual.Rol) && usuarioActual.Rol != "Administrador")
             {
-                // GESTIÓN DE SOCIOS Y ACCESOS
-                btnGestionPlanes.Visible = false; // No puede alterar precios de cuotas
+                AsuFit.Negocio.RolNegocio rolNegocio = new AsuFit.Negocio.RolNegocio();
+                var modulosPermitidos = rolNegocio.ObtenerPermisosPorNombreRol(usuarioActual.Rol);
 
-                // COMERCIAL E INVENTARIO
-                btnGestionProductos.Visible = false; // No altera el catálogo
-                btnIngresoMercaderia.Visible = false; // No registra compras a proveedores
-                btnProveedores.Visible = false; // No ve datos de proveedores
+                // --- INICIO ---
+                bool pInicio = modulosPermitidos.Contains("Inicio");
+                btnInicio.Visible = pInicio;
 
-                // CAJA Y FINANZAS
-                btnHistorialTransacciones.Visible = false; // No ve el historial de otros días
-                btnReportesEstadísticas.Visible = false; // No ve las ganancias totales
+                // Si NO tiene permiso de inicio, evitamos que se haga el auto-click al cargar
+                if (!pInicio)
+                {
+                    // Desuscribimos el evento que hace el click automático
+                    this.Shown -= (s, ev) => { btnInicio.PerformClick(); };
+                }
 
-                // SEGURIDAD Y CONTROL (No pueden crear ni auditar usuarios)
-                btnRegistrarUsuario.Visible = false;
-                btnGestionUsuarios.Visible = false;
-                btnAuditoría.Visible = false;
+                // --- GESTIÓN DE SOCIOS Y ACCESOS ---
+                bool pAsis = modulosPermitidos.Contains("Registro de Asistencia");
+                bool pRegSoc = modulosPermitidos.Contains("Registrar Socio");
+                bool pGesSoc = modulosPermitidos.Contains("Gestión de Socios");
+                bool pPlan = modulosPermitidos.Contains("Gestión de Planes");
 
-                // Ocultar título del módulo 4 (Seguridad)
-                Control[] lblMod4 = this.Controls.Find("lblModulo4", true);
-                if (lblMod4.Length > 0) lblMod4[0].Visible = false;
+                btnRegistroAsistencia.Visible = pAsis;
+                btnRegistrarSocio.Visible = pRegSoc;
+                btnGestionSocios.Visible = pGesSoc;
+                btnGestionPlanes.Visible = pPlan;
+                VisibilidadCategoria("GESTIÓN DE SOCIOS Y ACCESOS", pAsis || pRegSoc || pGesSoc || pPlan);
 
-                // BARRA SUPERIOR (Configuración general del gimnasio)
+                // --- COMERCIAL E INVENTARIO ---
+                bool pInv = modulosPermitidos.Contains("Inventario y Ventas");
+                bool pProd = modulosPermitidos.Contains("Gestión de Productos");
+                bool pIng = modulosPermitidos.Contains("Ingreso de Mercadería");
+                bool pProv = modulosPermitidos.Contains("Proveedores");
+
+                btnInventarioVentas.Visible = pInv;
+                btnGestionProductos.Visible = pProd;
+                btnIngresoMercaderia.Visible = pIng;
+                btnProveedores.Visible = pProv;
+                VisibilidadCategoria("COMERCIAL E INVENTARIO", pInv || pProd || pIng || pProv);
+
+                // --- CAJA Y FINANZAS ---
+                bool pArq = modulosPermitidos.Contains("Arqueo de Caja");
+                bool pCob = modulosPermitidos.Contains("Registrar Cobro");
+                bool pHist = modulosPermitidos.Contains("Historial de Transacciones");
+                bool pGast = modulosPermitidos.Contains("Gestión de Gastos");
+                bool pRep = modulosPermitidos.Contains("Reportes y Estadísticas");
+
+                btnArqueoCaja.Visible = pArq;
+                btnRegistrarCobro.Visible = pCob;
+                btnHistorialTransacciones.Visible = pHist;
+                btnGestionGastos.Visible = pGast;
+
+                Control[] btnRepArr = this.Controls.Find("btnReportesEstadísticas", true);
+                if (btnRepArr.Length > 0) btnRepArr[0].Visible = pRep;
+
+                VisibilidadCategoria("CAJA Y FINANZAS", pArq || pCob || pHist || pGast || pRep);
+
+                // CORRECCIÓN TOP BAR: Ocultar el estado de caja si no tiene permiso de Arqueo
+                if (btnEstadoCajaTop != null) btnEstadoCajaTop.Visible = pArq;
+
+                // --- SEGURIDAD Y CONTROL ---
+                bool pRegUsr = modulosPermitidos.Contains("Registrar Usuario");
+                bool pGesUsr = modulosPermitidos.Contains("Gestión de Usuarios");
+                bool pRol = modulosPermitidos.Contains("Gestión de Roles");
+                bool pAud = modulosPermitidos.Contains("Auditoría");
+
+                btnRegistrarUsuario.Visible = pRegUsr;
+                btnGestionUsuarios.Visible = pGesUsr;
+                btnGestionRoles.Visible = pRol;
+
+                Control[] btnAudArr = this.Controls.Find("btnAuditoría", true);
+                if (btnAudArr.Length > 0) btnAudArr[0].Visible = pAud;
+
+                VisibilidadCategoria("SEGURIDAD Y CONTROL", pRegUsr || pGesUsr || pRol || pAud);
+
+                // --- CONFIGURACIÓN ---
                 Control[] btnConfig = this.Controls.Find("btnConfiguración", true);
-                if (btnConfig.Length > 0) btnConfig[0].Visible = false;
-
-                Control[] btnConfigSinTilde = this.Controls.Find("btnConfiguracion", true);
-                if (btnConfigSinTilde.Length > 0) btnConfigSinTilde[0].Visible = false;
+                if (btnConfig.Length > 0) btnConfig[0].Visible = modulosPermitidos.Contains("Ajustes del Sistema");
             }
             // =====================================================================
 
@@ -239,27 +289,36 @@ namespace AsuFit.Presentacion
             menuDropdownUsuario.Items.Add(CrearItemMenu($"🛡️ Rol: {usuarioActual.Rol}"));
             menuDropdownUsuario.Items.Add(new ToolStripSeparator());
 
-            ToolStripMenuItem btnCambiarPass = CrearItemMenu("🔑 Cambiar Contraseña / Perfil");
-            btnCambiarPass.Click += (s, e) => {
+            // Validación de permisos para mostrar la opción de editar perfil
+            bool tienePermisoPerfil = true;
+            if (usuarioActual.Rol != "Administrador")
+            {
+                AsuFit.Negocio.RolNegocio rolNegocio = new AsuFit.Negocio.RolNegocio();
+                var perms = rolNegocio.ObtenerPermisosPorNombreRol(usuarioActual.Rol);
+                tienePermisoPerfil = perms.Contains("Registrar Usuario");
+            }
 
-                frmRegistrarUsuario frmEdicion = new frmRegistrarUsuario(usuarioActual, usuarioActual);
-                float escalaActual = Properties.Settings.Default.EscalaInterfaz;
-                frmEdicion.Scale(new SizeF(escalaActual, escalaActual));
-                frmEdicion.StartPosition = FormStartPosition.CenterParent;
+            if (tienePermisoPerfil)
+            {
+                ToolStripMenuItem btnCambiarPass = CrearItemMenu("🔑 Cambiar Contraseña / Perfil");
+                btnCambiarPass.Click += (s, e) => {
 
-                // --- NUEVO CANDADO DE SEGURIDAD ---
-                if (usuarioActual.Rol != "Administrador")
-                {
-                    frmEdicion.BloquearPermisosParaEmpleado();
-                }
+                    frmRegistrarUsuario frmEdicion = new frmRegistrarUsuario(usuarioActual, usuarioActual);
+                    float escalaActual = Properties.Settings.Default.EscalaInterfaz;
+                    frmEdicion.Scale(new SizeF(escalaActual, escalaActual));
+                    frmEdicion.StartPosition = FormStartPosition.CenterParent;
 
-                frmEdicion.ShowDialog();
+                    if (usuarioActual.Rol != "Administrador")
+                    {
+                        frmEdicion.BloquearPermisosParaEmpleado();
+                    }
 
-                // Actualizamos por si el usuario cambió su propio nombre completo
-                btnUsuario.Text = $"👤 {usuarioActual.NombreCompleto}";
-            };
-            menuDropdownUsuario.Items.Add(btnCambiarPass);
+                    frmEdicion.ShowDialog();
 
+                    btnUsuario.Text = $"👤 {usuarioActual.NombreCompleto}";
+                };
+                menuDropdownUsuario.Items.Add(btnCambiarPass);
+            }
 
             // --- MENÚ DE NOTIFICACIONES ---
             menuDropdownNotificaciones = new ContextMenuStrip();
@@ -271,7 +330,6 @@ namespace AsuFit.Presentacion
 
             int totalAlertas = sociosPorVencer + sociosVencidos + prodStockBajo + prodSinStock;
 
-            // Agregamos el ÍCONO 🔔 al texto del botón
             btnNotificaciones.Text = $"🔔 Notificaciones ({totalAlertas})";
             btnNotificaciones.Top = btnUsuario.Top;
 
@@ -458,6 +516,22 @@ namespace AsuFit.Presentacion
             this.ResumeLayout(true);
             this.PerformLayout();
         }
+
+        private void VisibilidadCategoria(string textoCategoria, bool tienePermisos)
+        {
+            void BuscarLabel(Control contenedor)
+            {
+                foreach (Control c in contenedor.Controls)
+                {
+                    if (c is Label lbl && lbl.Text.Trim().ToUpper() == textoCategoria.ToUpper())
+                    {
+                        lbl.Visible = tienePermisos;
+                    }
+                    if (c.HasChildren) BuscarLabel(c);
+                }
+            }
+            BuscarLabel(this);
+        }
         #endregion
 
         #region 5. EVENTOS DEL MENÚ LATERAL (MÓDULOS DEL SISTEMA)
@@ -593,11 +667,18 @@ namespace AsuFit.Presentacion
             AbrirFormularioHijo(new frmGestionUsuarios(usuarioActual));
         }
 
+        private void btnGestionRoles_Click(object sender, EventArgs e)
+        {
+            ResaltarBoton(sender);
+            AbrirFormularioHijo(new frmGestionRoles(usuarioActual));
+        }
+
         private void btnAuditoría_Click(object sender, EventArgs e)
         {
             ResaltarBoton(sender);
             AbrirFormularioHijo(new frmAuditoria());
         }
+
 
         private void btnConfiguración_Click(object sender, EventArgs e)
         {

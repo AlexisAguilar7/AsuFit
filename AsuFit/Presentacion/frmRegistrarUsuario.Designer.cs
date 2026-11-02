@@ -52,6 +52,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarRol = new System.Windows.Forms.Button();
             this.picMostrarConfirmPass = new System.Windows.Forms.PictureBox();
             this.picMostrarPass = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -126,10 +127,6 @@
             // 
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Items.AddRange(new object[] {
-            "--- Seleccionar ---",
-            "Administrador",
-            "Recepcionista"});
             this.cmbRol.Location = new System.Drawing.Point(175, 50);
             this.cmbRol.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRol.Name = "cmbRol";
@@ -179,9 +176,9 @@
             this.label4.Location = new System.Drawing.Point(4, 90);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Contraseña";
+            this.label4.Text = "Contraseña:";
             // 
             // label5
             // 
@@ -190,9 +187,9 @@
             this.label5.Location = new System.Drawing.Point(172, 36);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 13);
+            this.label5.Size = new System.Drawing.Size(26, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Rol";
+            this.label5.Text = "Rol:";
             // 
             // label6
             // 
@@ -201,9 +198,9 @@
             this.label6.Location = new System.Drawing.Point(6, 69);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 13);
+            this.label6.Size = new System.Drawing.Size(127, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Respuesta de Seguridad";
+            this.label6.Text = "Respuesta de Seguridad:";
             // 
             // lblPreguntaSeguridad
             // 
@@ -249,9 +246,9 @@
             this.label7.Location = new System.Drawing.Point(172, 90);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 13);
+            this.label7.Size = new System.Drawing.Size(110, 13);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Confirmar contraseña";
+            this.label7.Text = "Confirmar contraseña:";
             // 
             // txtConfirmarPassword
             // 
@@ -346,6 +343,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAgregarRol);
             this.groupBox2.Controls.Add(this.picMostrarConfirmPass);
             this.groupBox2.Controls.Add(this.picMostrarPass);
             this.groupBox2.Controls.Add(this.label11);
@@ -366,6 +364,20 @@
             this.groupBox2.Size = new System.Drawing.Size(403, 138);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
+            // 
+            // btnAgregarRol
+            // 
+            this.btnAgregarRol.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAgregarRol.FlatAppearance.BorderSize = 0;
+            this.btnAgregarRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarRol.Location = new System.Drawing.Point(284, 49);
+            this.btnAgregarRol.Name = "btnAgregarRol";
+            this.btnAgregarRol.Size = new System.Drawing.Size(26, 23);
+            this.btnAgregarRol.TabIndex = 30;
+            this.btnAgregarRol.Text = "+";
+            this.btnAgregarRol.UseVisualStyleBackColor = false;
+            this.btnAgregarRol.Visible = false;
+            this.btnAgregarRol.Click += new System.EventHandler(this.btnAgregarRol_Click);
             // 
             // picMostrarConfirmPass
             // 
@@ -514,5 +526,6 @@
         private System.Windows.Forms.PictureBox picMostrarConfirmPass;
         private System.Windows.Forms.PictureBox picMostrarPass;
         private System.Windows.Forms.PictureBox picMostrarRespuesta;
+        private System.Windows.Forms.Button btnAgregarRol;
     }
 }

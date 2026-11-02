@@ -167,6 +167,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmHistorialFisicoDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmHistorialFisicoDetalle";

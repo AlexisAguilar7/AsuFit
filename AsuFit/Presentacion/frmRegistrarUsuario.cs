@@ -51,12 +51,32 @@ namespace AsuFit.Presentacion
         private void frmRegistrarUsuario_Load(object sender, EventArgs e)
         {
             ConfigurarTemaOscuro();
+
+            try
+            {
+                AsuFit.Negocio.RolNegocio rolNeg = new AsuFit.Negocio.RolNegocio();
+                System.Data.DataTable dtRoles = rolNeg.ListarRoles(1); // 1 = Activos
+
+                // ATENCIÓN: Usamos el nombre real de tu control (cmbRol)
+                if (cmbRol != null)
+                {
+                    cmbRol.DataSource = null;
+                    cmbRol.Items.Clear();
+                    cmbRol.DataSource = dtRoles;
+                    cmbRol.DisplayMember = "NombreRol";
+                    cmbRol.ValueMember = "IdRol"; // Si te da error aquí, cambiá "IdRol" a "NombreRol" en la BD
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeAsuFit.Mostrar("Error al cargar roles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             ConfigurarComportamientoComboBox();
             SuscribirFiltrosDeSeguridad();
             CambiarEstadoBoton(false);
 
-            // Sincroniza el encabezado no elegible si no se encuentra en modo edición
-            if (usuarioAEditar == null && cmbRol.Items.Count > 0)
+            if (usuarioAEditar == null && cmbRol != null && cmbRol.Items.Count > 0)
             {
                 cmbRol.SelectedIndex = 0;
             }
@@ -406,6 +426,12 @@ namespace AsuFit.Presentacion
         #endregion
 
         #region 7. INTERACCIÓN DE CONTROLES VISUALES
+        // Para agregar un nuevo rol.
+        private void btnAgregarRol_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // Modifica el estado del enmascaramiento criptográfico a nivel visual e intercambia la representación icónica asociada.
         private void AlternarVisibilidad(TextBox cajaTexto, PictureBox ojito)
         {

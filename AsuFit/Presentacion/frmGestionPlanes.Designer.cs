@@ -150,12 +150,12 @@
             // chkMostrarInactivos
             // 
             this.chkMostrarInactivos.AutoSize = true;
-            this.chkMostrarInactivos.Location = new System.Drawing.Point(279, 36);
+            this.chkMostrarInactivos.Location = new System.Drawing.Point(328, 35);
             this.chkMostrarInactivos.Margin = new System.Windows.Forms.Padding(2);
             this.chkMostrarInactivos.Name = "chkMostrarInactivos";
-            this.chkMostrarInactivos.Size = new System.Drawing.Size(194, 17);
+            this.chkMostrarInactivos.Size = new System.Drawing.Size(140, 17);
             this.chkMostrarInactivos.TabIndex = 0;
-            this.chkMostrarInactivos.Text = "Mostrar planes eliminados/inactivos";
+            this.chkMostrarInactivos.Text = "Mostrar planes inactivos";
             this.chkMostrarInactivos.UseVisualStyleBackColor = true;
             this.chkMostrarInactivos.CheckedChanged += new System.EventHandler(this.chkMostrarInactivos_CheckedChanged);
             // 

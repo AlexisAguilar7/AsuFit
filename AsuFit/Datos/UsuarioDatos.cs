@@ -17,8 +17,12 @@ namespace AsuFit.Datos
             {
                 using (SqlConnection oConexion = Conexion.ObtenerConexion())
                 {
-                    // 1. SOLUCIÓN: Agregamos Email, Estado, Pregunta y Respuesta a la consulta SQL
-                    string query = "SELECT IdUsuario, NombreCompleto, Rol, Email, Estado, PreguntaSeguridad, RespuestaSeguridad FROM Usuarios WHERE Username = @user AND Password = @pass AND Estado = 'Activo'";
+                    string query = @"SELECT u.IdUsuario, u.NombreCompleto, r.NombreRol AS Rol, u.Email, u.Estado, 
+                                            u.PreguntaSeguridad, u.RespuestaSeguridad 
+                                     FROM Usuarios u
+                                     INNER JOIN Roles r ON u.IdRol = r.IdRol
+                                     WHERE u.Username = @user AND u.Password = @pass AND u.Estado = 'Activo'";
+
                     SqlCommand cmd = new SqlCommand(query, oConexion);
                     cmd.Parameters.AddWithValue("@user", username);
                     cmd.Parameters.AddWithValue("@pass", password);
@@ -34,8 +38,6 @@ namespace AsuFit.Datos
                                 NombreCompleto = dr["NombreCompleto"].ToString(),
                                 Username = username,
                                 Rol = dr["Rol"].ToString(),
-
-                                // 2. SOLUCIÓN: Rescatamos los valores de la base de datos (y verificamos que no sean nulos)
                                 Email = dr["Email"] != DBNull.Value ? dr["Email"].ToString() : "",
                                 Estado = dr["Estado"].ToString(),
                                 PreguntaSeguridad = dr["PreguntaSeguridad"] != DBNull.Value ? dr["PreguntaSeguridad"].ToString() : "",
@@ -115,8 +117,8 @@ namespace AsuFit.Datos
             {
                 try
                 {
-                    string query = @"INSERT INTO Usuarios (NombreCompleto, Username, Password, Rol, Estado, Email, PreguntaSeguridad, RespuestaSeguridad) 
-                             VALUES (@Nombre, @User, @Pass, @Rol, @Estado, @Email, @Pregunta, @Respuesta)";
+                    string query = @"INSERT INTO Usuarios (NombreCompleto, Username, Password, IdRol, Estado, Email, PreguntaSeguridad, RespuestaSeguridad) 
+                                     VALUES (@Nombre, @User, @Pass, (SELECT IdRol FROM Roles WHERE NombreRol = @Rol), @Estado, @Email, @Pregunta, @Respuesta)";
 
                     SqlCommand cmd = new SqlCommand(query, oConexion);
                     cmd.Parameters.AddWithValue("@Nombre", obj.NombreCompleto);
@@ -143,7 +145,12 @@ namespace AsuFit.Datos
             {
                 using (SqlConnection oConexion = Conexion.ObtenerConexion())
                 {
-                    string query = "SELECT IdUsuario, NombreCompleto, Username, Rol, Email, Estado, CONVERT(varchar, FechaRegistro, 103) + ' | ' + CONVERT(varchar, FechaRegistro, 108) AS FechaRegistro FROM Usuarios WHERE Estado = @estado";
+                    string query = @"SELECT u.IdUsuario, u.NombreCompleto, u.Username, r.NombreRol AS Rol, u.Email, u.Estado, 
+                                            CONVERT(varchar, u.FechaRegistro, 103) + ' | ' + CONVERT(varchar, u.FechaRegistro, 108) AS FechaRegistro 
+                                     FROM Usuarios u
+                                     INNER JOIN Roles r ON u.IdRol = r.IdRol
+                                     WHERE u.Estado = @estado";
+
                     SqlCommand cmd = new SqlCommand(query, oConexion);
                     cmd.Parameters.AddWithValue("@estado", estado);
 
@@ -166,7 +173,7 @@ namespace AsuFit.Datos
                                      NombreCompleto = @Nombre,
                                      Username = @User,
                                      Password = @Pass,
-                                     Rol = @Rol,
+                                     IdRol = (SELECT IdRol FROM Roles WHERE NombreRol = @Rol),
                                      Estado = @Estado,
                                      Email = @Email,
                                      PreguntaSeguridad = @Pregunta,
